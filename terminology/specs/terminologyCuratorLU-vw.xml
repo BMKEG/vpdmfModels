@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="TerminologyCuratorLU" type="Lookup">
+	<primitives>
+		<primitive name="TerminologyCuratorLU" >
+			<classes>
+				<class name="ViewTable"/>
+				<class name="Person"/>
+				<class name="TerminologyCurator"/>
+			</classes>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="$1$" />
+	<indexElements>
+		<indexElement pos="1" p="TerminologyCuratorLU" c="ViewTable" a="vpdmfLabel" />
+	</indexElements>
+</view>

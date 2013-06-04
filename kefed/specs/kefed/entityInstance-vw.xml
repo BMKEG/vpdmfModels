@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="EntityInstance" type="Data" parent="KefedModelElement">
+	<primitives>
+		<primitive name="KefedModelElement">
+			<classes>
+				<class name="KefedModelElement"/>
+				<class name="EntityInstance"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="KefedModelElement" role="defn" pv2="OoevvEntity" c2="OoevvElement"/>
+			</pvLinks>
+			<conditions>
+				<condition c="KefedModelElement" a="elementType" v="EntityInstance"/>
+			</conditions>
+		</primitive>
+		<primitive name="OoevvEntity" lookupView="OoevvEntityLU"/>
+	</primitives>
+	<vpdmfLabel format="$1$" />
+	<indexElements>
+		<indexElement pos="1" p="KefedModelElement" c="KefedModelElement" a="uuid" />
+	</indexElements>
+</view>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="KefedModel" type="Data">
+	<primitives>
+		<primitive name="KefedModel">
+			<classes>
+				<class name="KefedModel"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="KefedModel" role="elements" pv2="BranchPoint" c2="KefedModelElement"/>
+				<pvLink c1="KefedModel" role="elements" pv2="ForkPoint" c2="KefedModelElement"/>
+				<pvLink c1="KefedModel" role="elements" pv2="ProcessStartPoint" c2="KefedModelElement"/>
+				<pvLink c1="KefedModel" role="elements" pv2="ProcessInstance" c2="KefedModelElement"/>
+				<pvLink c1="KefedModel" role="elements" pv2="EntityInstance" c2="KefedModelElement"/>
+				<pvLink c1="KefedModel" role="elements" pv2="ParameterInstance" c2="KefedModelElement"/>
+				<pvLink c1="KefedModel" role="elements" pv2="ConstantInstance" c2="KefedModelElement"/>
+				<pvLink c1="KefedModel" role="elements" pv2="MeasurementInstance" c2="KefedModelElement"/>
+				<pvLink c1="KefedModel" role="curators" pv2="Curator" c2="Person"/>
+				<pvLink c1="KefedModel" role="reference" pv2="Reference" c2="ArticleCitationPlaceholder"/>
+				<pvLink c1="KefedModel" role="ooevv" pv2="OoevvElementSet" c2="OoevvElementSet"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="OoevvElementSet">
+			<classes>
+				<class name="OoevvElementSet"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="OoevvElementSet" role="term" pv2="OoevvTerm" c2="Term"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="OoevvTerm" lookupView="TermLU"/>
+		<primitive name="Curator" nullable="true">
+			<classes>
+				<class name="Person"/>
+			</classes>
+		</primitive>
+		<primitive name="Reference">
+			<classes>
+				<class name="ArticleCitationPlaceholder"/>
+			</classes>
+		</primitive>
+		
+		<!-- All the various types of KefedElement -->
+		<!-- ProcessControlPoints -->
+		
+		<primitive name="BranchPoint" nullable="true">
+			<classes>
+				<class name="KefedModelElement"/>
+				<class name="ProcessControlPoint"/>
+				<class name="BranchPoint"/>
+			</classes>
+			<conditions>
+				<condition c="KefedModelElement" a="elementType" v="BranchPoint"/>
+			</conditions>
+		</primitive>
+		<primitive name="ForkPoint" nullable="true">
+			<classes>
+				<class name="KefedModelElement"/>
+				<class name="ProcessControlPoint"/>
+				<class name="ForkPoint"/>
+			</classes>
+			<conditions>
+				<condition c="KefedModelElement" a="elementType" v="ForkPoint"/>
+			</conditions>
+		</primitive>
+		<primitive name="ProcessStartPoint" nullable="true">
+			<classes>
+				<class name="KefedModelElement"/>
+				<class name="ProcessControlPoint"/>
+				<class name="ProcessStartPoint"/>
+			</classes>
+			<conditions>
+				<condition c="KefedModelElement" a="elementType" v="ProcessStartPoint"/>
+			</conditions>
+		</primitive>
+		
+		<!-- ProcessInstances -->
+				
+		<primitive name="ProcessInstance" nullable="true">
+			<classes>
+				<class name="KefedModelElement"/>
+				<class name="ProcessInstance"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="ProcessInstance" role="processDef" pv2="OoevvProcess" c2="OoevvProcess"/>
+			</pvLinks>
+			<conditions>
+				<condition c="KefedModelElement" a="elementType" v="ProcessInstance"/>
+			</conditions>
+		</primitive>
+		<primitive name="OoevvProcess" lookupView="OoevvProcessLU" nullable="true"/>
+		
+		<!-- EntityInstances -->
+		
+		<primitive name="EntityInstance" nullable="true">
+			<classes>
+				<class name="KefedModelElement"/>
+				<class name="EntityInstance"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="EntityInstance" role="entityDef" pv2="OoevvEntity" c2="OoevvEntity"/>
+			</pvLinks>
+			<conditions>
+				<condition c="KefedModelElement" a="elementType" v="EntityInstance"/>
+			</conditions>
+		</primitive>
+		<primitive name="OoevvEntity" lookupView="OoevvEntityLU" nullable="true"/>
+		
+		<!-- VariableInstances -->
+		
+		<primitive name="ParameterInstance" nullable="true">
+			<classes>
+				<class name="KefedModelElement"/>
+				<class name="VariableInstance"/>
+				<class name="ParameterInstance"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="VariableInstance" role="variableDef" pv2="ExperimentalVariable" c2="ExperimentalVariable"/>
+			</pvLinks>
+			<conditions>
+				<condition c="KefedModelElement" a="elementType" v="ParameterInstance"/>
+			</conditions>
+		</primitive>
+
+		<primitive name="ConstantInstance" nullable="true">
+			<classes>
+				<class name="KefedModelElement"/>
+				<class name="VariableInstance"/>
+				<class name="ParameterInstance"/>
+				<class name="ConstantInstance"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="VariableInstance" role="variableDef" pv2="ExperimentalVariable" c2="ExperimentalVariable"/>
+			</pvLinks>
+			<conditions>
+				<condition c="KefedModelElement" a="elementType" v="ConstantInstance"/>
+			</conditions>
+		</primitive>
+
+		<primitive name="MeasurementInstance" nullable="true">
+			<classes>
+				<class name="KefedModelElement"/>
+				<class name="VariableInstance"/>
+				<class name="MeasurementInstance"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="VariableInstance" role="variableDef" pv2="ExperimentalVariable" c2="ExperimentalVariable"/>
+			</pvLinks>
+			<conditions>
+				<condition c="KefedModelElement" a="elementType" v="MeasurementInstance"/>
+			</conditions>
+		</primitive>
+
+		<primitive name="ExperimentalVariable" lookupView="ExperimentalVariableLU" nullable="true"/>
+		
+	</primitives>
+	<vpdmfLabel format="KEfED: $1$, expt: $2$, version: $3$" />
+	<indexElements>
+		<indexElement pos="1" p="Reference" c="ArticleCitationPlaceholder" a="citation" />
+		<indexElement pos="2" p="KefedModel" c="KefedModel" a="exptId" />
+		<indexElement pos="3" p="KefedModel" c="KefedModel" a="version" />
+	</indexElements>
+</view>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="Corpus" type="Collection">
+	<primitives>
+		<primitive name="Corpus" >
+			<classes>
+				<class name="Corpus"/>
+			</classes>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="$1$" />
+	<indexElements>
+		<indexElement pos="1" p="Corpus" c="Corpus" a="name" />
+	</indexElements>
+</view>

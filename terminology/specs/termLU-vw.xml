@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="TermLU" type="Lookup">
+	<primitives>
+		<primitive name="TermLU" >
+			<classes>
+				<class name="ViewTable"/>
+				<class name="Term"/>
+			</classes>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="$1$" />
+	<indexElements>
+		<indexElement pos="1" p="TermLU" c="ViewTable" a="vpdmfLabel" />
+	</indexElements>
+</view>

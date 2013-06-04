@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="ResourceType" type="Lookup" editable="false">
+	<primitives>
+		<primitive name="ResourceType">
+			<classes>
+				<class name="CV"/>
+			</classes>
+			<conditions>
+				<condition c="CV" a="context" v="Resource.ResourceType"/>
+			</conditions>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="$1$" />
+	<indexElements>
+		<indexElement pos="1" p="ResourceType" c="CV" a="name" />
+	</indexElements>
+</view>

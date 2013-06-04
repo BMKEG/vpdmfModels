@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="OoevvProcessLU" type="Lookup" editable="false">
+	<primitives>
+		<primitive name="OoevvProcessLU">
+			<classes>
+				<class name="ViewTable"/>
+				<class name="OoevvElement"/>
+				<class name="OoevvProcess"/>
+			</classes>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="$1$" />
+	<indexElements>
+		<indexElement pos="1" p="OoevvProcessLU" c="ViewTable" a="vpdmfLabel" />
+	</indexElements>
+</view>

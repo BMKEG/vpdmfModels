@@ -1,0 +1,312 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>edu.isi.bmkeg</groupId>
+  <artifactId>vpdmf-model-parent</artifactId>
+  <version>0.1.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>vpdmf-model-parent</name>
+  
+  	<parent>
+	    <groupId>edu.isi.bmkeg</groupId>
+	    <artifactId>bmkeg-parent</artifactId>
+	    <version>0.1.0-SNAPSHOT</version>
+	    <relativePath>../bmkeg-parent</relativePath>
+ 	</parent>
+
+ 	<properties>
+ 		<!-- Use this setting for releases -->
+ 		<deployRepoUrl>${distributionManagement.repository.url}</deployRepoUrl>
+ 		<deployRepoId>${distributionManagement.repository.id}</deployRepoId>
+ 		<!-- Use this setting for SNAPSHOTS -->
+	<!-- 
+ 		<deployRepoUrl>${distributionManagement.snapshotRepository.url}</deployRepoUrl> 
+ 		<deployRepoId>${distributionManagement.snapshotRepository.id}</deployRepoId>
+ 	-->
+ 	</properties>
+ 
+  
+ 	<build>
+ 		<plugins>
+ 			<!-- 
+ 				POM's of vpdmf models should include the plugins
+ 				that call vpdmf ConstructVPDMfArchive to generate 
+ 				VPDMf archive and that bind plugins goals
+ 				to build phases.
+ 				
+ 				For example:
+
+	 			<plugin>
+	 				<groupId>org.codehaus.mojo</groupId>
+	 				<artifactId>exec-maven-plugin</artifactId>
+	 				<version>1.2.1</version>
+	 				<executions>
+	 					<execution>
+				            <id>generate-vpdmf</id>
+				            <phase>generate-resources</phase>
+				            <goals>
+				              <goal>exec</goal>
+				            </goals>
+				            <inherited>false</inherited>
+					        <configuration>
+					          <executable>java</executable>
+					          <arguments>
+					            <argument>-classpath</argument>
+					            <classpath/>
+					            <argument>edu.isi.bmkeg.vpdmf.bin.ConstructVPDMfArchive</argument>
+					            <argument>${basedir}/ftd_vpdmfSpec.xml</argument>
+					            <argument>${project.build.directory}/${project.artifactId}-${project.version}.zip</argument>
+					          </arguments>
+					        </configuration>
+				        </execution>
+	 				</executions>
+	 			</plugin>
+ 		
+
+				Installs artifact of non standard type zip
+				explicitly
+
+		 	<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>2.4</version>
+ 				<executions>
+ 					<execution>
+			            <id>install-vpdmf</id>
+			            <phase>install</phase>
+			            <goals>
+			              <goal>install-file</goal>
+			            </goals>
+			        </execution>
+ 				</executions>
+ 			</plugin>
+  			
+
+				Deploys artifact of non standard type zip
+				explicitly
+
+ 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.7</version>
+ 				<executions>
+ 					<execution>
+			            <id>deploy-vpdmf</id>
+			            <phase>deploy</phase>
+			            <goals>
+			              <goal>deploy-file</goal>
+			            </goals>
+			        </execution>
+ 				</executions>
+ 			</plugin>
+  			
+
+				Extracts the jpa project from the vpdmf archive
+
+			<plugin>
+	        	<groupId>org.codehaus.mojo</groupId>
+	    	    <artifactId>truezip-maven-plugin</artifactId>
+		        <version>1.1</version>
+	          </plugin>
+	          
+
+	          	Packages, installs, and deploys the jpa project
+
+		      <plugin>
+		        <artifactId>maven-invoker-plugin</artifactId>
+		        <version>1.8</version>
+		        <executions>
+		          <execution>
+		            <id>package-jpa</id>
+		            <phase>package</phase>
+		            <goals>
+		              <goal>run</goal>
+		            </goals>
+		          </execution>
+		          <execution>
+		            <id>install-jpa</id>
+		            <phase>install</phase>
+		            <goals>
+		              <goal>run</goal>
+		            </goals>
+		          </execution>
+		          <execution>
+		            <id>deploy-jpa</id>
+		            <phase>deploy</phase>
+		            <goals>
+		              <goal>run</goal>
+		            </goals>
+		          </execution>
+		        </executions>
+		      </plugin>
+  		
+  		** End examples **
+  		
+			 --> 			 
+ 			
+ 		</plugins>
+ 		
+ 		<pluginManagement>
+ 			<plugins>
+				<!-- 
+					Installs artifact of non standard type zip
+					explicitly
+				 -->
+	 			<plugin>
+					<artifactId>maven-install-plugin</artifactId>
+	 				<executions>
+	 					<execution>
+				            <id>install-vpdmf</id>
+				            <phase>phase-set-in-children</phase>
+				            <goals>
+				              <goal>install-file</goal>
+				            </goals>
+				            <inherited>true</inherited>
+					        <configuration>
+					          <file>${project.build.directory}/${project.artifactId}-${project.version}.zip</file>
+							  <packaging>zip</packaging>
+							  <pomFile>${basedir}/pom.xml</pomFile>
+					        </configuration>
+				        </execution>
+	 				</executions>
+	 			</plugin>
+
+			<!-- 
+				Deploys artifact of non standard type zip
+				explicitly
+			 -->
+ 			<plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+ 				<executions>
+ 					<execution>
+			            <id>deploy-vpdmf</id>
+			            <phase>phase-set-in-children</phase>
+			            <goals>
+			              <goal>deploy-file</goal>
+			            </goals>
+			            <inherited>true</inherited>
+				        <configuration>
+				          <file>${project.build.directory}/${project.artifactId}-${project.version}.zip</file>
+				       	  <repositoryId>${deployRepoId}</repositoryId>
+				          <url>${deployRepoUrl}</url>
+						  <packaging>zip</packaging>
+						  <pomFile>${basedir}/pom.xml</pomFile>
+				        </configuration>
+			        </execution>
+ 				</executions>
+ 			</plugin>
+
+			<!-- 
+				Extracts the jpa project from the vpdmf archive
+			 -->
+			<plugin>
+	        	<groupId>org.codehaus.mojo</groupId>
+	    	    <artifactId>truezip-maven-plugin</artifactId>
+		        <version>1.1</version>
+		        <executions>
+		        
+	          	  <execution>
+		            <id>extract-sources-jpa</id>
+		            <goals>
+			          <goal>list</goal>
+		              <goal>copy</goal>
+		            </goals>
+		            <phase>process-resources</phase>
+		            <inherited>true</inherited>
+		            <configuration>
+		              <verbose>true</verbose>
+		              <immediateUpdate>true</immediateUpdate>
+		            	<filesets>
+                        	<fileset>
+				                <directory>${project.build.directory}/${project.artifactId}-${project.version}.zip/${project.artifactId}-src.jar</directory>
+				                <outputDirectory>${project.build.directory}/projects/jpa/</outputDirectory>
+              				</fileset>		              						  
+		            	</filesets>
+			            </configuration>
+		          </execution>
+	          	  <execution>
+		            <id>extract-sources-as</id>
+		            <goals>
+			          <goal>list</goal>
+		              <goal>copy</goal>
+		            </goals>
+		            <phase>process-resources</phase>
+		            <configuration>
+		              <verbose>true</verbose>
+		              <immediateUpdate>true</immediateUpdate>
+		            	<filesets>
+                        	<fileset>
+				                <directory>${project.build.directory}/${project.artifactId}-${project.version}.zip/${project.artifactId}-as.zip/${project.artifactId}-as</directory>
+				                <outputDirectory>${project.build.directory}/projects/as/</outputDirectory>
+              				</fileset>		              						  
+		            	</filesets>
+			            </configuration>
+		          </execution>
+	            </executions>
+	          </plugin>
+	          
+	          <!-- 
+	          	Packages, installs, and deploys the jpa project
+	           -->
+		      <plugin>
+		        <artifactId>maven-invoker-plugin</artifactId>
+		        <configuration>
+			       <projectsDirectory>${project.build.directory}/projects</projectsDirectory>
+		        </configuration>
+		        <executions>
+		          <execution>
+		            <id>package-jpa</id>
+		            <phase>package</phase>
+		            <goals>
+		              <goal>run</goal>
+		            </goals>
+		            <configuration>
+		            	<goals>
+		            		<goal>package</goal>
+		            	</goals>
+		            </configuration>
+		          </execution>
+		          <execution>
+		            <id>install-jpa</id>
+		            <phase>install</phase>
+		            <goals>
+		              <goal>run</goal>
+		            </goals>
+		            <configuration>
+		            	<goals>
+		            		<goal>install</goal>
+		            	</goals>
+		            </configuration>
+		          </execution>
+		          <execution>
+		            <id>deploy-jpa</id>
+		            <phase>deploy</phase>
+		            <goals>
+		              <goal>run</goal>
+		            </goals>
+		            <configuration>
+		            	<goals>
+		            		<goal>deploy</goal>
+		            	</goals>
+		           		<properties>
+		           			<altDeploymentRepository>${deployRepoId}::default::${deployRepoUrl}</altDeploymentRepository>
+		           		</properties>
+		            </configuration>
+		          </execution>
+		        </executions>
+		      </plugin>
+ 			
+ 			</plugins>
+ 		
+ 		</pluginManagement>
+ 	</build>
+ 	 	
+ 	<dependencies>
+       <dependency>
+         <groupId>edu.isi.bmkeg</groupId>
+         <artifactId>vpdmf</artifactId>
+         <version>1.1.3-SNAPSHOT</version>
+         <type>jar</type>
+         <scope>runtime</scope>
+       </dependency> 	
+ 	</dependencies>
+</project>

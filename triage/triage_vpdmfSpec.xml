@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<vpdmf>
+    <artifactId>triage</artifactId>
+    <groupId>edu.isi.bmkeg</groupId>
+    <version>0.1.4-SNAPSHOT</version>
+    <model name="triage" type="MagicDraw" path="triage.xml"/>
+    <viewsPath>specs</viewsPath>    
+	<uimaPkgPattern>.model.</uimaPkgPattern>
+</vpdmf>

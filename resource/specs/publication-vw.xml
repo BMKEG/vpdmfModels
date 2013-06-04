@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="Publication" type="Data" parent="Resource" editable="false">
+	<primitives>
+		<primitive name="Resource" >
+			<classes>
+				<class name="Resource"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="Resource" role="authorList" pv2="Scientist" c2="Person"/>
+				<pvLink c1="Resource" role="uid" pv2="UID" c2="UID"/>
+				<pvLink c1="Resource" role="keyword" pv2="Keyword" c2="Keyword"/>
+				<pvLink c1="Resource" role="resourceType" pv2="ResourceType" c2="CV"/>
+				<pvLink c1="Resource" role="fullTextURL" pv2="URI" c2="URI"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="UID" nullable="true">
+			<classes>
+				<class name="UID"/>
+			</classes>
+		</primitive>
+		<primitive name="URI" nullable="true">
+			<classes>
+				<class name="URI"/>
+			</classes>
+		</primitive>
+		<primitive lookupView="Scientist"/>
+		<primitive name="Keyword" nullable="true">
+			<classes>
+				<class name="Keyword"/>
+			</classes>
+		</primitive>
+		<primitive editable="0" lookupView="ResourceType">
+			<conditions>
+				<condition c="CV" a="context" v="Resource.ResourceType"/>
+				<condition c="CV" a="name" v="Bibliographic"/>
+			</conditions>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="$1$" />
+	<indexElements>
+		<indexElement pos="1" p="Resource" c="ViewTable" a="vpdmfLabel" />
+	</indexElements>
+</view>

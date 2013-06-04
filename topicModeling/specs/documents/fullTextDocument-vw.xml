@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="FullTextDocument" type="Data">
+	<primitives>
+		<primitive name="FullTextDocument">
+			<classes>
+				<class name="FullTextDocument"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="FullTextDocument" role="citation" pv2="LiteratureCitation" c2="LiteratureCitation"/>
+				<pvLink c1="FullTextDocument" role="sections" pv2="SectionText" c2="SectionText"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="LiteratureCitation">
+			<classes>
+				<class name="ViewTable"/>
+				<class name="LiteratureCitation"/>
+			</classes>
+		</primitive>
+		<primitive name="SectionText" nullable="true">
+			<classes>
+				<class name="SectionText"/>
+			</classes>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="ftd: $1$" />
+	<indexElements>
+		<indexElement pos="1" p="LiteratureCitation" c="ViewTable" a="vpdmfLabel" />
+	</indexElements>
+</view>

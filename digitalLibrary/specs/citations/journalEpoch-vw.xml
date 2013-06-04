@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="JournalEpoch" type="Data" editable="true">
+	<primitives>
+		<primitive name="JournalEpoch">
+			<classes>
+				<class name="JournalEpoch"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="JournalEpoch" role="journal" pv2="Journal" c2="Journal"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="Journal">
+			<classes>
+				<class name="Journal"/>
+			</classes>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="$1$." />
+	<indexElements>
+		<indexElement pos="1" p="Journal" c="Journal" a="abbr" />
+		<indexElement pos="2" p="JournalEpoch" c="JournalEpoch" a="startVol" />
+		<indexElement pos="3" p="JournalEpoch" c="JournalEpoch" a="endVol" />
+		<indexElement pos="4" p="JournalEpoch" c="JournalEpoch" a="ruleFileName" unique="true" />
+	</indexElements>
+</view>

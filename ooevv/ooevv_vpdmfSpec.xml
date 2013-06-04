@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<vpdmf>
+    <artifactId>ooevv</artifactId>
+    <groupId>edu.isi.bmkeg</groupId>
+    <version>0.0.9-SNAPSHOT</version>
+    <model name="ooevv" type="MagicDraw" path="ooevv.xml"/>
+    <viewsPath>specs</viewsPath>    
+</vpdmf>

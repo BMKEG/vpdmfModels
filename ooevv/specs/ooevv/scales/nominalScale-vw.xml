@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="NominalScale" type="Data" parent="MeasurementScale">
+	<primitives>
+		<primitive name="MeasurementScale">
+			<classes>
+				<class name="MeasurementScale"/>
+				<class name="NominalScale" />
+			</classes>
+			<pvLinks>
+				<pvLink c1="MeasurementScale" role="term" pv2="Term" c2="Term"/>
+			</pvLinks>
+			<conditions>
+				<condition c="MeasurementScale" a="classType" v="NominalScale"/>
+			</conditions>
+		</primitive>
+		<primitive name="Term">
+			<classes>
+				<class name="Term"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="Term" role="ontology" pv2="Ontology" c2="Ontology"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="Ontology" nullable="true">
+			<classes>
+				<class name="Ontology"/>
+			</classes>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="$3$" />
+	<indexElements>
+		<indexElement pos="1" p="Ontology" c="Ontology" a="shortName" />
+		<indexElement pos="2" p="Term" c="Term" a="shortTermId" />
+		<indexElement pos="3" p="Term" c="Term" a="termValue" />
+	</indexElements>
+</view>

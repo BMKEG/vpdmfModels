@@ -1,0 +1,11 @@
+*.java
+*.as
+*_VPDMf.zip
+.DS_store
+*.jar
+*.zip
+*.swc
+*-jpa/*
+src/*
+target/*
+*.class

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="RelativeValue" type="Data" Parent="MeasurementValue">
+	<primitives>
+		<primitive name="MeasurementValue">
+			<classes>
+				<class name="MeasurementValue"/>
+				<class name="RelativeValue"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="MeasurementValue" role="term" pv2="Term" c2="Term"/>
+				<pvLink c1="MeasurementValue" role="scale" pv2="Scale" c2="MeasurementScale"/>
+				<pvLink c1="RelativeValue" role="valueMappings" pv2="RelativeValueMapping" c2="RelativeValueMapping"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="Term">
+			<classes>
+				<class name="Term"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="Term" role="ontology" pv2="Ontology" c2="Ontology"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="Ontology" nullable="true">
+			<classes>
+				<class name="Ontology"/>
+			</classes>
+		</primitive>
+		<primitive name="Scale" nullable="true">
+			<classes>
+				<class name="MeasurementScale"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="MeasurementScale" role="term" pv2="ScaleTerm" c2="Term"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="ScaleTerm" nullable="true">
+			<classes>
+				<class name="Term"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="Term" role="ontology" pv2="ScaleOntology" c2="Ontology"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="ScaleOntology" nullable="true">
+			<classes>
+				<class name="Ontology"/>
+			</classes>
+		</primitive>
+		<primitive name="RelativeValueMapping">
+			<classes>
+				<class name="RelativeValueMapping"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="RelativeValueMapping" role="targetValue" pv2="RelativeValueMappingTarget" c2="NominalValue"/>
+				<pvLink c1="RelativeValueMapping" role="relationTerm" pv2="RelativeValueMappingRelation" c2="Term"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="RelativeValueMappingTarget">
+			<classes>
+				<class name="MeasurementValue"/>
+				<class name="NominalValue"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="MeasurementValue" role="term" pv2="RelativeValueMappingTargetTerm" c2="Term"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="RelativeValueMappingTargetTerm">
+			<classes>
+				<class name="Term"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="Term" role="ontology" pv2="RelativeValueMappingTargetOntology" c2="Ontology"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="RelativeValueMappingTargetOntology" nullable="true">
+			<classes>
+				<class name="Ontology"/>
+			</classes>
+		</primitive>
+		<primitive name="RelativeValueMappingRelation">
+			<classes>
+				<class name="Term"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="Term" role="ontology" pv2="RelativeValueMappingRelationOntology" c2="Ontology"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="RelativeValueMappingRelationOntology" nullable="true">
+			<classes>
+				<class name="Ontology"/>
+			</classes>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="$3$" />
+	<indexElements>
+		<indexElement pos="1" p="Ontology" c="Ontology" a="shortName" />
+		<indexElement pos="2" p="Term" c="Term" a="shortTermId" />
+		<indexElement pos="3" p="Term" c="Term" a="termValue" />
+	</indexElements>
+</view>

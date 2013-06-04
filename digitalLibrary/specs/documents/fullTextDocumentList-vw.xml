@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="FullTextDocumentList" type="Lookup" editable="false" >
+	<primitives>
+		<primitive name="FTD">
+			<classes>
+				<class name="ViewTable"/>
+				<class name="FTD"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="FTD" role="sections" pv2="FTDSection" c2="FTDSection"/>
+				<pvLink c1="FTD" role="citation" pv2="LiteratureCitation" c2="LiteratureCitation"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="FTDSection" nullable="true">
+			<classes>
+				<class name="FTDSection"/>
+			</classes>
+		</primitive>
+		<primitive name="LiteratureCitation" nullable="true">
+			<classes>
+				<class name="ViewTable"/>
+				<class name="LiteratureCitation"/>
+			</classes>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="$1$ [checksum: $2$]" />
+	<indexElements>
+		<indexElement pos="1" p="FTD" c="FTD" a="name" />
+		<indexElement pos="2" p="FTD" c="FTD" a="checksum" />
+		<indexElement pos="3" p="LiteratureCitation" c="ViewTable" a="vpdmfLabel" />
+	</indexElements>
+</view>

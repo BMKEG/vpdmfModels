@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="MeasurementInstance" type="Data" parent="VariableInstance">
+	<primitives>
+		<primitive name="KefedModelElement">
+			<classes>
+				<class name="KefedModelElement"/>
+				<class name="VariableInstance"/>
+				<class name="MeasurementInstance"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="KefedModelElement" role="defn" pv2="ExperimentalVariable" c2="OoevvElement"/>
+				<pvLink c1="MeasurementInstance" role="isDepOn" pv2="Context" c2="VariableInstance"/>
+			</pvLinks>
+			<conditions>
+				<condition c="KefedModelElement" a="elementType" v="MeasurementInstance"/>
+			</conditions>
+		</primitive>
+		<primitive name="ExperimentalVariable" lookupView="ExperimentalVariableLU"/>
+		<primitive name="Context" nullable="true">
+			<classes>
+				<class name="KefedModelElement"/>
+				<class name="VariableInstance"/>
+			</classes>
+		</primitive>			
+	</primitives>
+	<vpdmfLabel format="$1$" />
+	<indexElements>
+		<indexElement pos="1" p="KefedModelElement" c="KefedModelElement" a="uuid" />
+	</indexElements>
+</view>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="MalletProcessedCorpus" type="Data" editable="true">
+	<primitives>
+		<primitive name="MalletProcessedCorpus" >
+			<classes>
+				<class name="MalletProcessedCorpus"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="MalletProcessedCorpus" role="corpus" pv2="Corpus" c2="Corpus"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="Corpus" nullable="false">
+			<classes>
+				<class name="Corpus"/>
+			</classes>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="$1$-$2$" />
+	<indexElements>
+		<indexElement pos="1" p="MalletProcessedCorpus" c="MalletProcessedCorpus" a="name" />
+		<indexElement pos="2" p="Corpus" c="Corpus" a="name" />
+	</indexElements>
+</view>

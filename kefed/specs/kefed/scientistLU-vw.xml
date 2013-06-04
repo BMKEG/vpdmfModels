@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="ScientistLU" type="Lookup">
+	<primitives>
+		<primitive name="ScientistLU" >
+			<classes>
+				<class name="ViewTable"/>
+				<class name="Person"/>
+				<class name="Scientist"/>
+			</classes>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="$1$" />
+	<indexElements>
+		<indexElement pos="1" p="ScientistLU" c="ViewTable" a="vpdmfLabel" />
+	</indexElements>
+</view>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<formDesign name="basicArticleView" view="Article">	
+	<grid pos="1" label="Author" p="Scientist">
+		<textInput pos="1" label="Initials" size="10" p="Scientist" c="Person" a="initials"/>
+		<textInput pos="2" label="Surname" size="10" p="Scientist" c="Person" a="lastName"/>
+	</grid>
+	<textInput pos="2" label="Year" format="yyyy" size="5" p="Resource" c="Resource" a="pubYear"/>
+	<textRegion pos="3" label="Title" height="3" width="40" p="Resource" c="Resource" a="title"/>
+	<textInput pos="4" label="Pages" size="8" p="Resource" c="Resource" a="pages"/>
+	<textRegion pos="5" label="Abstract" height="10" width="40" p="Resource" c="Resource" a="abstract"/>
+	<textInput pos="6" label="Unique Id" size="10" p="Resource" c="Resource" a="uid"/>
+	<lookup pos="7" label="Resource Type" lookupView="ResourceType" p="ResourceType" c="CV" a="indexString"/>
+</formDesign>

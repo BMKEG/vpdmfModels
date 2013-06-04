@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="ArticleCitation" type="Data" parent="LiteratureCitation">
+	<primitives>
+		<primitive name="LiteratureCitation">
+			<classes>
+				<class name="LiteratureCitation"/>
+				<class name="ArticleCitation" />
+			</classes>
+			<pvLinks>
+				<pvLink c1="LiteratureCitation" role="authorList" pv2="Author" c2="Author"/>
+				<pvLink c1="LiteratureCitation" role="corpora" pv2="Corpus" c2="Corpus"/>
+				<pvLink c1="LiteratureCitation" role="ids" pv2="ID" c2="ID"/>
+				<pvLink c1="LiteratureCitation" role="keywordList" pv2="Keyword" c2="Keyword"/>
+				<pvLink c1="LiteratureCitation" role="fullTextUrl" pv2="URL" c2="URL"/>
+				<pvLink c1="ArticleCitation" role="journal" pv2="JournalLU" c2="Journal"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="Corpus" nullable="true">
+			<classes>
+				<class name="Corpus"/>
+			</classes>
+		</primitive>
+		<primitive name="ID" nullable="true">
+			<classes>
+				<class name="ID"/>
+			</classes>
+		</primitive>
+		<primitive name="URL" nullable="true">
+			<classes>
+				<class name="URL"/>
+			</classes>
+		</primitive>
+		<primitive lookupView="Author"/>
+		<primitive name="Keyword" nullable="true">
+			<classes>
+				<class name="Keyword"/>
+			</classes>
+		</primitive>
+		<primitive editable="false" lookupView="JournalLU" />
+	</primitives>
+ 	<viewLinks>
+		<viewLink name="Journal" setRelation="Superset"
+				 v1="ArticleCitation" p1="JournalLU" c1="Journal"
+				 v2="Journal" p2="Journal" c2="Journal"/>
+	</viewLinks> 
+	<vpdmfLabel format="@1@ ($2$), `$3$` $4$ $5$:$6$ [$7$]" />
+	<indexElements>
+		<indexElement pos="1" p="Author" c="Person" a="fullName" />
+		<indexElement pos="2" p="LiteratureCitation" c="LiteratureCitation" a="pubYear" />
+		<indexElement pos="3" p="LiteratureCitation" c="LiteratureCitation" a="title" />
+		<indexElement pos="4" p="JournalLU" c="Journal" a="abbr" />
+		<indexElement pos="5" p="LiteratureCitation" c="ArticleCitation" a="volume" />
+		<indexElement pos="6" p="LiteratureCitation" c="LiteratureCitation" a="pages" />
+		<indexElement pos="7" p="LiteratureCitation" c="ArticleCitation" a="pmid" uniqueKey="true"/>
+	</indexElements>
+</view>

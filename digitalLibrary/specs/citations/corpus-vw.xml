@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="Corpus" type="Collection">
+	<primitives>
+		<primitive name="Corpus" >
+			<classes>
+				<class name="Corpus"/>
+			</classes>
+			<pvLinks>
+				<pvLink paged="true" 
+						c1="Corpus" role="resources" 
+						pv2="LiteratureCitationLU" c2="LiteratureCitation"/>
+			</pvLinks>
+		</primitive>
+		<primitive editable="0" nullable="true" lookupView="LiteratureCitationLU"/>
+	</primitives>
+	<vpdmfLabel format="$1$" />
+	<indexElements>
+		<indexElement pos="1" p="Corpus" c="Corpus" a="name" />
+	</indexElements>
+</view>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="JournalLU" type="Lookup" editable="false">
+	<primitives>
+		<primitive name="JournalLU">
+			<classes>
+				<class name="ViewTable"/>
+				<class name="Journal"/>
+			</classes>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="$1$" />
+	<indexElements>
+		<indexElement pos="1" p="Journal" c="ViewTable" a="vpdmfLabel" />
+	</indexElements>
+</view>

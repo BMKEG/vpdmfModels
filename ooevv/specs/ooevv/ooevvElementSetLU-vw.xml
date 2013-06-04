@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="OoevvElementSetLU" type="Lookup" editable="false">
+	<primitives>
+		<primitive name="OoevvElementSetLU">
+			<classes>
+				<class name="ViewTable"/>
+				<class name="OoevvElementSet"/>
+			</classes>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="$1$" />
+	<indexElements>
+		<indexElement pos="1" p="OoevvElementSetLU" c="ViewTable" a="vpdmfLabel" />
+	</indexElements>
+</view>

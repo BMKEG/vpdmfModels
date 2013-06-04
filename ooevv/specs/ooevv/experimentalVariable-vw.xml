@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="ExperimentalVariable" type="Data" parent="OoevvElement">
+	<primitives>
+		<primitive name="ExperimentalVariable">
+			<classes>
+				<class name="OoevvElement"/>
+				<class name="ExperimentalVariable"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="OoevvElement" role="term" pv2="Term" c2="Term"/>
+				<pvLink c1="ExperimentalVariable" role="measures" pv2="QualityDefinition" c2="Term"/>
+				<pvLink c1="ExperimentalVariable" role="scale" pv2="MeasurementScale" c2="MeasurementScale"/>
+			</pvLinks>
+			<conditions>
+				<condition c="OoevvElement" a="elementType" v="ExperimentalVariable"/>
+			</conditions>
+		</primitive>
+		<primitive name="Term">
+			<classes>
+				<class name="Term"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="Term" role="ontology" pv2="Ontology" c2="Ontology"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="Ontology" nullable="true">
+			<classes>
+				<class name="Ontology"/>
+			</classes>
+		</primitive>
+		<primitive name="QualityDefinition" nullable="true">
+			<classes>
+				<class name="Term"/>
+			</classes>
+		</primitive>
+		<primitive name="MeasurementScale" nullable="true">
+			<classes>
+				<class name="MeasurementScale"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="MeasurementScale" role="term" pv2="ScaleDefinition" c2="Term"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="ScaleDefinition" nullable="true">
+			<classes>
+				<class name="Term"/>
+			</classes>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="$3$" />
+	<indexElements>
+		<indexElement pos="1" p="Ontology" c="Ontology" a="shortName" />
+		<indexElement pos="2" p="Term" c="Term" a="shortTermId" />
+		<indexElement pos="3" p="Term" c="Term" a="termValue" />
+	</indexElements>
+</view>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="Person" type="Data">
+	<primitives>
+		<primitive name="Person">
+			<classes>
+				<class name="Person"/>
+			</classes>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="$1$" />
+	<indexElements>
+		<indexElement pos="1" p="Person" c="Person" a="fullName" />
+	</indexElements>
+</view>

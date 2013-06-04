@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="vpdmfUser" type="System">
+	<primitives>
+		<primitive name="vpdmfUser">
+			<classes>
+				<class name="vpdmfUser"/>
+			</classes>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="$1$" />
+	<indexElements>
+		<indexElement pos="1" p="vpdmfUser" c="vpdmfUser" a="login" />
+	</indexElements>
+</view>

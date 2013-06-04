@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="ResourceCollection" type="Data" parent="Resource">
+	<primitives>
+		<primitive name="ResourceCollection" >
+			<classes>
+				<class name="ResourceCollection"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="ResourceCollection" role="resource" pv2="ResourceLU" c2="Resource"/>
+			</pvLinks>
+		</primitive>
+		<primitive editable="0" nullable="true" lookupView="ResourceLU"/>
+	</primitives>
+<!-- 	<viewLinks>
+		<viewLink name="Resource" setRelation="Overlap"
+				 v1="ResourceCollection" p1="ResourceLU" c1="ViewTable"
+				 v2="Resource" p2="Resource" c2="ViewTable"/>
+	</viewLinks> -->
+	<vpdmfLabel format="$1$" />
+	<indexElements>
+		<indexElement pos="1" p="ResourceCollection" c="ResourceCollection" a="name" />
+	</indexElements>
+</view>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="BranchPoint" type="Data" parent="KefedModelElement">
+	<primitives>
+		<primitive name="KefedModelElement">
+			<classes>
+				<class name="KefedModelElement"/>
+				<class name="ProcessControlPoint"/>
+				<class name="BranchPoint"/>
+			</classes>
+			<conditions>
+				<condition c="KefedModelElement" a="elementType" v="BranchPoint"/>
+			</conditions>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="$1$" />
+	<indexElements>
+		<indexElement pos="1" p="KefedModelElement" c="KefedModelElement" a="uuid" />
+	</indexElements>
+</view>

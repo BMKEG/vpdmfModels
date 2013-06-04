@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="BinaryScaleWithNamedValues" type="Data" parent="BinaryScale">
+	<primitives>
+		<primitive name="MeasurementScale">
+			<classes>
+				<class name="MeasurementScale"/>
+				<class name="BinaryScale" />
+				<class name="BinaryScaleWithNamedValues" />
+			</classes>
+			<pvLinks>
+				<pvLink c1="MeasurementScale" role="term" pv2="Term" c2="Term"/>
+				<pvLink c1="BinaryScaleWithNamedValues" role="trueValue" pv2="TrueValue" c2="BinaryValue"/>
+				<pvLink c1="BinaryScaleWithNamedValues" role="falseValue" pv2="FalseValue" c2="BinaryValue"/>
+			</pvLinks>
+			<conditions>
+				<condition c="MeasurementScale" a="classType" v="BinaryScaleWithNamedValues"/>
+			</conditions>
+		</primitive>
+		<primitive name="Term">
+			<classes>
+				<class name="Term"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="Term" role="ontology" pv2="Ontology" c2="Ontology"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="Ontology" nullable="true">
+			<classes>
+				<class name="Ontology"/>
+			</classes>
+		</primitive>
+		<primitive name="TrueValue">
+			<classes>
+				<class name="MeasurementValue"/>
+				<class name="BinaryValue"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="MeasurementValue" role="term" pv2="TrueValueTerm" c2="Term"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="TrueValueTerm">
+			<classes>
+				<class name="Term"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="Term" role="ontology" pv2="TrueValueOntology" c2="Ontology"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="TrueValueOntology" nullable="true">
+			<classes>
+				<class name="Ontology"/>
+			</classes>
+		</primitive>
+		<primitive name="FalseValue">
+			<classes>
+				<class name="MeasurementValue"/>
+				<class name="BinaryValue"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="MeasurementValue" role="term" pv2="FalseValueTerm" c2="Term"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="FalseValueTerm">
+			<classes>
+				<class name="Term"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="Term" role="ontology" pv2="FalseValueOntology" c2="Ontology"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="FalseValueOntology" nullable="true">
+			<classes>
+				<class name="Ontology"/>
+			</classes>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="$3$" />
+	<indexElements>
+		<indexElement pos="1" p="Ontology" c="Ontology" a="shortName" />
+		<indexElement pos="2" p="Term" c="Term" a="shortTermId" />
+		<indexElement pos="3" p="Term" c="Term" a="termValue" />
+	</indexElements>
+</view>

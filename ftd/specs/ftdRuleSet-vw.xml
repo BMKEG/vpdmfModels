@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="FTDRuleSet" type="Data">
+	<primitives>
+		<primitive name="FTDRuleSet">
+			<classes>
+				<class name="FTDRuleSet"/>
+			</classes>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="$1$ ($2$)" />
+	<indexElements>
+		<indexElement pos="1" p="FTDRuleSet" c="FTDRuleSet" a="rsName" />
+		<indexElement pos="2" p="FTDRuleSet" c="FTDRuleSet" a="fileName" />
+	</indexElements>
+</view>

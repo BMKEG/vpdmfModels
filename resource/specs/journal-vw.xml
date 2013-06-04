@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="Journal" type="External" editable="false">
+	<primitives>
+		<primitive name="Journal">
+			<classes>
+				<class name="Journal"/>
+			</classes>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="$1$." />
+	<indexElements>
+		<indexElement pos="1" p="Journal" c="Journal" a="abbr" />
+	</indexElements>
+</view>

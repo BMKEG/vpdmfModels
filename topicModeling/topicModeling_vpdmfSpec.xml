@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<vpdmf>
+    <artifactId>topicModeling</artifactId>
+    <groupId>edu.isi.bmkeg</groupId>
+    <version>0.0.4-SNAPSHOT</version>
+    <model name="topicModeling" type="MagicDraw" path="topicModeling.xml"/>
+    <viewsPath>specs</viewsPath>    
+    <data path="sheets" type="txt"/>    
+    <solr>
+	    <view>ArticleCitation</view>
+    	<view>Corpus</view>
+    </solr>
+</vpdmf>

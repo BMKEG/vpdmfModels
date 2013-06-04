@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="Question" type="Data">
+	<primitives>
+		<primitive name="Question">
+			<classes>
+				<class name="Question"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="Question" role="plannedExpt" pv2="PlannedExptProtocol" c2="PlannedExptProtocol"/>
+				<pvLink c1="Question" role="subQuestion" pv2="SubQuestion" c2="Question"/>
+				<pvLink c1="Question" role="investigation" pv2="Investigation" c2="Investigation"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="Investigation" nullable="true">
+			<classes>
+				<class name="ViewTable"/>
+				<class name="Investigation"/>
+			</classes>
+		</primitive>
+		<primitive name="PlannedExptProtocol" nullable="true">
+			<classes>
+				<class name="ViewTable"/>
+				<class name="KefedModel"/>
+				<class name="PlannedExptProtocol"/>
+			</classes>
+		</primitive>
+		<!--  Modeling this relationship was problematic.
+		1-n relationships between a table and itself should only have the -n side
+		represented as a primitve-->  
+		<primitive name="SubQuestion" nullable="true">
+			<classes>
+				<class name="ViewTable"/>
+				<class name="Question"/>
+			</classes>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="$1$" />
+	<indexElements>
+		<indexElement pos="1" p="Question" c="Question" a="question" />
+		<indexElement pos="2" p="Question" c="Question" a="type" />
+		<indexElement pos="3" p="SuperQuestion" c="Question" a="question" />
+		<indexElement pos="3" p="Investigation" c="Investigation" a="investigation" />
+	</indexElements>
+</view>

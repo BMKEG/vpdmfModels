@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="link" type="System">
+	<primitives>
+		<primitive name="link">
+			<classes>
+				<class name="ViewLinkTable"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="ViewLinkTable" role="from" pv2="FromView" c2="ViewTable"/>
+				<pvLink c1="ViewLinkTable" role="to" pv2="ToView" c2="ViewTable"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="ToView">
+			<classes>
+				<class name="ViewTable"/>
+			</classes>
+		</primitive>
+		<primitive name="FromView">
+			<classes>
+				<class name="ViewTable"/>
+			</classes>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="$4$ >>> link >>> $5$" />
+	<indexElements>
+		<indexElement pos="1" p="link" c="ViewLinkTable" a="linkType" />
+		<indexElement pos="2" p="ToView" c="ViewTable" a="UIDString" />
+		<indexElement pos="3" p="FromView" c="ViewTable" a="UIDString" />
+		<indexElement pos="4" p="ToView" c="ViewTable" a="vpdmfLabel" />
+		<indexElement pos="5" p="FromView" c="ViewTable" a="vpdmfLabel" />
+	</indexElements>
+</view>

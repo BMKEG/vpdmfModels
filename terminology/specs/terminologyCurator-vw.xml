@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="TerminologyCurator" type="Data">
+	<primitives>
+		<primitive name="TerminologyCurator" nullable="true">
+			<classes>
+				<class name="Person"/>
+				<class name="TerminologyCurator"/>
+			</classes>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="$1$" />
+	<indexElements>
+		<indexElement pos="1" p="TerminologyCurator" c="Person" a="fullName" />
+	</indexElements>
+</view>

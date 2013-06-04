@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="TriagedArticle" type="Data" editable="true" parent="TriageScore">
+	<primitives>
+		<primitive name="TriageScore">
+			<classes>
+				<class name="TriageScore"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="TriageScore" role="citation" pv2="LiteratureCitation" c2="LiteratureCitation"/>
+				<pvLink c1="TriageScore" role="targetCorpus" pv2="TargetCorpus" c2="Corpus"/>
+				<pvLink c1="TriageScore" role="triageCorpus" pv2="TriageCorpus" c2="TriageCorpus"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="TargetCorpus" >
+			<classes>
+				<class name="ViewTable"/>
+				<class name="Corpus"/>
+			</classes>
+		</primitive>
+		<primitive name="TriageCorpus" >
+			<classes>
+				<class name="ViewTable"/>
+				<class name="Corpus"/>
+				<class name="TriageCorpus"/>
+			</classes>
+		</primitive>
+		<primitive name="LiteratureCitation" editable="false">
+			<classes>
+				<class name="ViewTable"/>
+				<class name="LiteratureCitation"/>
+				<class name="ArticleCitation"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="LiteratureCitation" role="authorList" pv2="Author" c2="Author"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="Author" editable="false" nullable="true">
+			<classes>
+				<class name="ViewTable"/>
+				<class name="Person"/>
+				<class name="Author"/>
+			</classes>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="$1$; $2$/$3$ ($4$/$5$)" />
+	<indexElements>
+		<indexElement pos="1" p="LiteratureCitation" c="ViewTable" a="vpdmfLabel" />
+		<indexElement pos="2" p="TriageScore" c="TriageScore" a="inOutCode" />
+		<indexElement pos="3" p="TriageScore" c="TriageScore" a="inScore" />
+		<indexElement pos="4" p="TargetCorpus" c="Corpus" a="name" />
+		<indexElement pos="5" p="TriageCorpus" c="Corpus" a="name" />
+	</indexElements>
+</view>

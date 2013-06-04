@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="KefedModelLU" type="Lookup" editable="false">
+	<primitives>
+		<primitive name="KefedModelLU">
+			<classes>
+				<class name="ViewTable"/>
+				<class name="KefedModel"/>
+			</classes>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="$1$" />
+	<indexElements>
+		<indexElement pos="1" p="KefedModelLU" c="ViewTable" a="vpdmfLabel" />
+	</indexElements>
+</view>

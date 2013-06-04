@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="DocumentTopicVector" type="Data" editable="true">
+	<primitives>
+		<primitive name="DocumentTopicVector">
+			<classes>
+				<class name="DocumentTopicVector"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="DocumentTopicVector" role="citation" pv2="LiteratureCitation" c2="LiteratureCitation"/>
+				<pvLink c1="DocumentTopicVector" role="sectionText" pv2="SectionText" c2="SectionText"/>
+				<pvLink c1="DocumentTopicVector" role="run" pv2="TopicModelingRun" c2="TopicModelingRun"/>
+				<pvLink c1="DocumentTopicVector" role="topicMixtures" pv2="TopicMixture" c2="TopicMixture"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="LiteratureCitation">
+			<classes>
+				<class name="ViewTable"/>
+				<class name="LiteratureCitation"/>
+			</classes>
+		</primitive>
+		<primitive name="SectionText"  nullable="true">
+			<classes>
+				<class name="SectionText"/>
+			</classes>
+		</primitive>
+		<primitive name="TopicModelingRun"  nullable="false">
+			<classes>
+				<class name="TopicModelingRun"/>
+			</classes>
+		</primitive>
+		<primitive name="TopicMixture" nullable="false">
+			<classes>
+				<class name="TopicMixture"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="TopicMixture" role="topic" pv2="Topic" c2="Topic"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="Topic">
+			<classes>
+				<class name="Topic"/>
+			</classes>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="$1$-$2$" />
+	<indexElements>
+		<indexElement pos="1" p="TopicModelingRun" c="TopicModelingRun" a="name" />
+		<indexElement pos="2" p="LiteratureCitation" c="ViewTable" a="vpdmfLabel" />
+	</indexElements>
+</view>
