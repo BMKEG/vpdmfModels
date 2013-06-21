@@ -6,7 +6,7 @@ target
 *.java
 *.as
 *_VPDMf.zip
-**/.DS_store
+**/.DS_Store
 *.jar
 *.zip
 *.swc
