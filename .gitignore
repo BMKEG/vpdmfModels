@@ -1,3 +1,8 @@
+target
+/.project
+/*/.project
+/.settings
+/*/.settings
 *.java
 *.as
 *_VPDMf.zip
@@ -7,5 +12,4 @@
 *.swc
 *-jpa/*
 src/*
-target/*
 *.class
