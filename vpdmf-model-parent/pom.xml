@@ -14,14 +14,14 @@
  	</parent>
 
  	<properties>
- 		<bmkegParentVersion>${parent.version}</bmkegParentVersion>
+ 		<bmkegParentVersion>${project.parent.version}</bmkegParentVersion>
  		<!-- Use this setting for releases -->
- 		<deployRepoUrl>${distributionManagement.repository.url}</deployRepoUrl>
- 		<deployRepoId>${distributionManagement.repository.id}</deployRepoId>
+ 		<deployRepoUrl>${project.distributionManagement.repository.url}</deployRepoUrl>
+ 		<deployRepoId>${project.distributionManagement.repository.id}</deployRepoId>
  		<!-- Use this setting for SNAPSHOTS -->
 	<!-- 
- 		<deployRepoUrl>${distributionManagement.snapshotRepository.url}</deployRepoUrl> 
- 		<deployRepoId>${distributionManagement.snapshotRepository.id}</deployRepoId>
+ 		<deployRepoUrl>${project.distributionManagement.snapshotRepository.url}</deployRepoUrl> 
+ 		<deployRepoId>${project.distributionManagement.snapshotRepository.id}</deployRepoId>
  	-->
  	</properties>
  
@@ -42,7 +42,6 @@
 			            <id>generate-vpdmf</id>
 			            <phase>generate-resources</phase>
 			            <goals>
-<!-- 		              <goal>java</goal>  -->	
  			              <goal>exec</goal>
 			            </goals>
 			            <inherited>true</inherited>
@@ -57,7 +56,6 @@
 			            <id>generate-maven-models</id>
 			            <phase>generate-resources</phase>
 			            <goals>
-<!-- 		              <goal>java</goal>  -->	
  			              <goal>exec</goal>
 			            </goals>
 			            <inherited>true</inherited>
@@ -72,7 +70,6 @@
 			            <id>generate-maven-services</id>
 			            <phase>generate-resources</phase>
 			            <goals>
-<!-- 		              <goal>java</goal>  -->	
  			              <goal>exec</goal>
 			            </goals>
 			            <inherited>true</inherited>
@@ -134,9 +131,46 @@
  				</executions>
  			</plugin>
 
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
+		        <executions>
+		          <execution>
+		          <id>generate-multimodule-pom</id>
+		          <phase>prepare-package</phase>
+		            <goals>
+		              <goal>run</goal>
+		            </goals>
+		            <configuration>
+		              <target>
+				        <echo file="${project.build.directory}/projects/pom.xml"><![CDATA[
+				        	<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				        		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+				        		<modelVersion>4.0.0</modelVersion>
+				        		<groupId>edu.isi.bmkeg</groupId>
+				        		<artifactId>projects-helper</artifactId>
+				        		<version>0</version>
+				        		<packaging>pom</packaging>
+				        		
+				        		<name>projects-helper</name>
+				
+				        		<modules>
+				        			<module>${project.artifactId}-jpa</module>
+				        			<module>${project.artifactId}-services</module>
+				        		</modules>
+				        	</project>]]>
+				        </echo>
+		              </target>
+		            </configuration>
+		          </execution>
+		        </executions>				
+			</plugin>
+			
 			<!-- 
 				Extracts the jpa project from the vpdmf archive
 			 -->
+
+<!-- 
 			<plugin>
 	        	<groupId>org.codehaus.mojo</groupId>
 	    	    <artifactId>truezip-maven-plugin</artifactId>
@@ -182,6 +216,8 @@
 		          </execution>
 	            </executions>
 	          </plugin>
+ -->
+
 	          
 	          <!-- 
 	          	Packages, installs, and deploys the jpa project
@@ -189,7 +225,7 @@
 		      <plugin>
 		        <artifactId>maven-invoker-plugin</artifactId>
 		        <configuration>
-			       <projectsDirectory>${project.build.directory}/projects</projectsDirectory>
+				   <pom>${project.build.directory}/projects/pom.xml</pom>
 		        </configuration>
 		        <executions>
 		          <execution>
