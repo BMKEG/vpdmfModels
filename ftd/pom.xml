@@ -19,15 +19,6 @@
 		<vpdmf.viewsPath>specs</vpdmf.viewsPath>
 		<vpdmf.nestedModels></vpdmf.nestedModels>  	
 <!-- 	<vpdmf.nestedModels>${basedir}/../people/</vpdmf.nestedModels>  -->  	
- 		<!-- Use this setting for releases -->
- <!-- 
- 		<deployRepoUrl>${distributionManagement.repository.url}</deployRepoUrl>
- 		<deployRepoId>${distributionManagement.repository.id}</deployRepoId>
-  -->		
- 		<!-- Use this setting for SNAPSHOTS -->
- 		<deployRepoUrl>${distributionManagement.snapshotRepository.url}</deployRepoUrl> 
- 		<deployRepoId>${distributionManagement.snapshotRepository.id}</deployRepoId>
-
  	</properties>
   
  	<build>
@@ -75,18 +66,7 @@
 			        </execution>
  				</executions>
  			</plugin>
-  			
-			<!-- 
-				Extracts the jpa project from the vpdmf archive
-			 -->
-	<!-- 
-			<plugin>
-	        	<groupId>org.codehaus.mojo</groupId>
-	    	    <artifactId>truezip-maven-plugin</artifactId>
-		        <version>1.1</version>
-	        </plugin>
-	 -->		 
-	 
+
 			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
 				<version>1.7</version>
@@ -101,21 +81,21 @@
 		        <version>1.8</version>
 		        <executions>
 		          <execution>
-		            <id>package-jpa</id>
+		            <id>package-subprojects</id>
 		            <phase>package</phase>
 		            <goals>
 		              <goal>run</goal>
 		            </goals>
 		          </execution>
 		          <execution>
-		            <id>install-jpa</id>
+		            <id>install-subprojects</id>
 		            <phase>install</phase>
 		            <goals>
 		              <goal>run</goal>
 		            </goals>
 		          </execution>
 		          <execution>
-		            <id>deploy-jpa</id>
+		            <id>deploy-subprojects</id>
 		            <phase>deploy</phase>
 		            <goals>
 		              <goal>run</goal>

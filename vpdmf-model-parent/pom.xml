@@ -16,13 +16,13 @@
  	<properties>
  		<bmkegParentVersion>${project.parent.version}</bmkegParentVersion>
  		<!-- Use this setting for releases -->
+ 	<!-- 
  		<deployRepoUrl>${project.distributionManagement.repository.url}</deployRepoUrl>
  		<deployRepoId>${project.distributionManagement.repository.id}</deployRepoId>
- 		<!-- Use this setting for SNAPSHOTS -->
-	<!-- 
- 		<deployRepoUrl>${project.distributionManagement.snapshotRepository.url}</deployRepoUrl> 
+	 -->
+  		<!-- Use this setting for SNAPSHOTS -->
+		<deployRepoUrl>${project.distributionManagement.snapshotRepository.url}</deployRepoUrl> 
  		<deployRepoId>${project.distributionManagement.snapshotRepository.id}</deployRepoId>
- 	-->
  	</properties>
  
   
@@ -98,8 +98,9 @@
 				            </goals>
 				            <inherited>true</inherited>
 					        <configuration>
-					          <file>${project.build.directory}/${project.artifactId}-${project.version}.zip</file>
+					          <file>${project.build.directory}/${project.artifactId}-mysql-${project.version}.zip</file>
 							  <packaging>zip</packaging>
+							  <classifier>mysql</classifier>
 							  <pomFile>${basedir}/pom.xml</pomFile>
 					        </configuration>
 				        </execution>
@@ -121,9 +122,10 @@
 			            </goals>
 			            <inherited>true</inherited>
 				        <configuration>
-				          <file>${project.build.directory}/${project.artifactId}-${project.version}.zip</file>
+				          <file>${project.build.directory}/${project.artifactId}-mysql-${project.version}.zip</file>
 				       	  <repositoryId>${deployRepoId}</repositoryId>
 				          <url>${deployRepoUrl}</url>
+							  <classifier>mysql</classifier>
 						  <packaging>zip</packaging>
 						  <pomFile>${basedir}/pom.xml</pomFile>
 				        </configuration>
@@ -148,12 +150,31 @@
 				        		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 				        		<modelVersion>4.0.0</modelVersion>
 				        		<groupId>edu.isi.bmkeg</groupId>
-				        		<artifactId>projects-helper</artifactId>
+				        		<artifactId>${project.artifactId}-build-helper</artifactId>
 				        		<version>0</version>
 				        		<packaging>pom</packaging>
 				        		
-				        		<name>projects-helper</name>
-				
+				        		<name>${project.artifactId}-build-helper</name>
+				        		
+				        		<build>
+				        			<plugins>
+				        				<plugin>
+											<artifactId>maven-install-plugin</artifactId>
+											<version>2.4</version>
+				    						<configuration>
+				    							<skip>true</skip>
+				    						</configuration>			
+				        				</plugin>
+				        				<plugin>
+											<artifactId>maven-deploy-plugin</artifactId>
+											<version>2.7</version>
+				    						<configuration>
+				    							<skip>true</skip>
+				    						</configuration>			
+				        				</plugin>
+				        			</plugins>
+				        		</build>
+
 				        		<modules>
 				        			<module>${project.artifactId}-jpa</module>
 				        			<module>${project.artifactId}-services</module>
@@ -165,60 +186,7 @@
 		          </execution>
 		        </executions>				
 			</plugin>
-			
-			<!-- 
-				Extracts the jpa project from the vpdmf archive
-			 -->
 
-<!-- 
-			<plugin>
-	        	<groupId>org.codehaus.mojo</groupId>
-	    	    <artifactId>truezip-maven-plugin</artifactId>
-		        <version>1.1</version>
-		        <executions>
-		        
-	          	  <execution>
-		            <id>extract-sources-jpa</id>
-		            <goals>
-			          <goal>list</goal>
-		              <goal>copy</goal>
-		            </goals>
-		            <phase>process-resources</phase>
-		            <inherited>true</inherited>
-		            <configuration>
-		              <verbose>true</verbose>
-		              <immediateUpdate>true</immediateUpdate>
-		            	<filesets>
-                        	<fileset>
-				                <directory>${project.build.directory}/${project.artifactId}-${project.version}.zip/${project.artifactId}-src.jar</directory>
-				                <outputDirectory>${project.build.directory}/projects/jpa/</outputDirectory>
-              				</fileset>		              						  
-		            	</filesets>
-			            </configuration>
-		          </execution>
-	          	  <execution>
-		            <id>extract-sources-as</id>
-		            <goals>
-			          <goal>list</goal>
-		              <goal>copy</goal>
-		            </goals>
-		            <phase>process-resources</phase>
-		            <configuration>
-		              <verbose>true</verbose>
-		              <immediateUpdate>true</immediateUpdate>
-		            	<filesets>
-                        	<fileset>
-				                <directory>${project.build.directory}/${project.artifactId}-${project.version}.zip/${project.artifactId}-as.zip/${project.artifactId}-as</directory>
-				                <outputDirectory>${project.build.directory}/projects/as/</outputDirectory>
-              				</fileset>		              						  
-		            	</filesets>
-			            </configuration>
-		          </execution>
-	            </executions>
-	          </plugin>
- -->
-
-	          
 	          <!-- 
 	          	Packages, installs, and deploys the jpa project
 	           -->
@@ -229,7 +197,7 @@
 		        </configuration>
 		        <executions>
 		          <execution>
-		            <id>package-jpa</id>
+		            <id>package-subprojects</id>
 		            <phase>package</phase>
 		            <goals>
 		              <goal>run</goal>
@@ -241,7 +209,7 @@
 		            </configuration>
 		          </execution>
 		          <execution>
-		            <id>install-jpa</id>
+		            <id>install-subprojects</id>
 		            <phase>install</phase>
 		            <goals>
 		              <goal>run</goal>
@@ -253,7 +221,7 @@
 		            </configuration>
 		          </execution>
 		          <execution>
-		            <id>deploy-jpa</id>
+		            <id>deploy-subprojects</id>
 		            <phase>deploy</phase>
 		            <goals>
 		              <goal>run</goal>
@@ -262,9 +230,6 @@
 		            	<goals>
 		            		<goal>deploy</goal>
 		            	</goals>
-		           		<properties>
-		           			<altDeploymentRepository>${deployRepoId}::default::${deployRepoUrl}</altDeploymentRepository>
-		           		</properties>
 		            </configuration>
 		          </execution>
 		        </executions>
