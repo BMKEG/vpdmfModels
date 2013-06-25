@@ -14,6 +14,7 @@
  	</parent>
 
  	<properties>
+ 		<bmkegParentVersion>${parent.version}</bmkegParentVersion>
  		<!-- Use this setting for releases -->
  		<deployRepoUrl>${distributionManagement.repository.url}</deployRepoUrl>
  		<deployRepoId>${distributionManagement.repository.id}</deployRepoId>
@@ -27,126 +28,64 @@
   
  	<build>
  		<plugins>
- 			<!-- 
- 				POM's of vpdmf models should include the plugins
- 				that call vpdmf ConstructVPDMfArchive to generate 
- 				VPDMf archive and that bind plugins goals
- 				to build phases.
- 				
- 				For example:
-
-	 			<plugin>
-	 				<groupId>org.codehaus.mojo</groupId>
-	 				<artifactId>exec-maven-plugin</artifactId>
-	 				<version>1.2.1</version>
-	 				<executions>
-	 					<execution>
-				            <id>generate-vpdmf</id>
-				            <phase>generate-resources</phase>
-				            <goals>
-				              <goal>exec</goal>
-				            </goals>
-				            <inherited>false</inherited>
-					        <configuration>
-					          <executable>java</executable>
-					          <arguments>
-					            <argument>-classpath</argument>
-					            <classpath/>
-					            <argument>edu.isi.bmkeg.vpdmf.bin.ConstructVPDMfArchive</argument>
-					            <argument>${basedir}/ftd_vpdmfSpec.xml</argument>
-					            <argument>${project.build.directory}/${project.artifactId}-${project.version}.zip</argument>
-					          </arguments>
-					        </configuration>
-				        </execution>
-	 				</executions>
-	 			</plugin>
- 		
-
-				Installs artifact of non standard type zip
-				explicitly
-
-		 	<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-install-plugin</artifactId>
-				<version>2.4</version>
- 				<executions>
- 					<execution>
-			            <id>install-vpdmf</id>
-			            <phase>install</phase>
-			            <goals>
-			              <goal>install-file</goal>
-			            </goals>
-			        </execution>
- 				</executions>
- 			</plugin>
-  			
-
-				Deploys artifact of non standard type zip
-				explicitly
-
- 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-deploy-plugin</artifactId>
-				<version>2.7</version>
- 				<executions>
- 					<execution>
-			            <id>deploy-vpdmf</id>
-			            <phase>deploy</phase>
-			            <goals>
-			              <goal>deploy-file</goal>
-			            </goals>
-			        </execution>
- 				</executions>
- 			</plugin>
-  			
-
-				Extracts the jpa project from the vpdmf archive
-
-			<plugin>
-	        	<groupId>org.codehaus.mojo</groupId>
-	    	    <artifactId>truezip-maven-plugin</artifactId>
-		        <version>1.1</version>
-	          </plugin>
-	          
-
-	          	Packages, installs, and deploys the jpa project
-
-		      <plugin>
-		        <artifactId>maven-invoker-plugin</artifactId>
-		        <version>1.8</version>
-		        <executions>
-		          <execution>
-		            <id>package-jpa</id>
-		            <phase>package</phase>
-		            <goals>
-		              <goal>run</goal>
-		            </goals>
-		          </execution>
-		          <execution>
-		            <id>install-jpa</id>
-		            <phase>install</phase>
-		            <goals>
-		              <goal>run</goal>
-		            </goals>
-		          </execution>
-		          <execution>
-		            <id>deploy-jpa</id>
-		            <phase>deploy</phase>
-		            <goals>
-		              <goal>run</goal>
-		            </goals>
-		          </execution>
-		        </executions>
-		      </plugin>
-  		
-  		** End examples **
-  		
-			 --> 			 
- 			
  		</plugins>
  		
  		<pluginManagement>
  			<plugins>
+ 		
+ 		 	<plugin>
+ 				<groupId>org.codehaus.mojo</groupId>
+ 				<artifactId>exec-maven-plugin</artifactId>
+ 				<version>1.2.1</version>
+ 				<executions>
+ 					<execution>
+			            <id>generate-vpdmf</id>
+			            <phase>generate-resources</phase>
+			            <goals>
+<!-- 		              <goal>java</goal>  -->	
+ 			              <goal>exec</goal>
+			            </goals>
+			            <inherited>true</inherited>
+			        	<configuration>
+				          <executable>java</executable>
+				       	  <commandlineArgs>
+				       	  	-classpath %classpath edu.isi.bmkeg.vpdmf.bin.BuildVpdmfMysqlMavenZip ${basedir} ${vpdmf.nestedModels} ${project.build.directory}/ ${bmkegParentVersion}
+			       	  	  </commandlineArgs>
+				        </configuration>
+			        </execution>
+ 					<execution>
+			            <id>generate-maven-models</id>
+			            <phase>generate-resources</phase>
+			            <goals>
+<!-- 		              <goal>java</goal>  -->	
+ 			              <goal>exec</goal>
+			            </goals>
+			            <inherited>true</inherited>
+			        	<configuration>
+				          <executable>java</executable>
+				       	  <commandlineArgs>
+				       	  	-classpath %classpath edu.isi.bmkeg.vpdmf.bin.BuildVpdmfModelMavenProject ${basedir} ${vpdmf.nestedModels} ${project.build.directory}/projects/ ${bmkegParentVersion}
+			       	  	  </commandlineArgs>
+				        </configuration>
+			        </execution>
+ 					<execution>
+			            <id>generate-maven-services</id>
+			            <phase>generate-resources</phase>
+			            <goals>
+<!-- 		              <goal>java</goal>  -->	
+ 			              <goal>exec</goal>
+			            </goals>
+			            <inherited>true</inherited>
+			        	<configuration>
+				          <executable>java</executable>
+				       	  <commandlineArgs>
+				       	  	-classpath %classpath edu.isi.bmkeg.vpdmf.bin.BuildVpdmfServicesMavenProject ${basedir} ${vpdmf.nestedModels} ${project.build.directory}/projects/ ${bmkegParentVersion}
+			       	  	  </commandlineArgs>
+				        </configuration>
+			        </execution>
+ 				</executions>
+ 			</plugin>
+ 		
 				<!-- 
 					Installs artifact of non standard type zip
 					explicitly
@@ -303,7 +242,7 @@
  	<dependencies>
        <dependency>
          <groupId>edu.isi.bmkeg</groupId>
-         <artifactId>vpdmf</artifactId>
+         <artifactId>vpdmfGenerator</artifactId>
          <scope>runtime</scope>
        </dependency> 	
  	</dependencies>

@@ -2,18 +2,23 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>edu.isi.bmkeg</groupId>
   <artifactId>ftd</artifactId>
-  <version>0.1.0-SNAPSHOT</version>
+  <version>1.1.3-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>ftd</name>
   
   	<parent>
 	    <groupId>edu.isi.bmkeg</groupId>
 	    <artifactId>vpdmf-model-parent</artifactId>
-	    <version>0.1.0-SNAPSHOT</version>
+	    <version>1.1.3-SNAPSHOT</version>
 	    <relativePath>../vpdmf-model-parent</relativePath>
  	</parent>
 
  	<properties>
+		<vpdmf.model.type>MagicDraw</vpdmf.model.type>
+		<vpdmf.model.path>ftd.xml</vpdmf.model.path>
+		<vpdmf.viewsPath>specs</vpdmf.viewsPath>
+		<vpdmf.nestedModels></vpdmf.nestedModels>  	
+<!-- 	<vpdmf.nestedModels>${basedir}/../people/</vpdmf.nestedModels>  -->  	
  		<!-- Use this setting for releases -->
  <!-- 
  		<deployRepoUrl>${distributionManagement.repository.url}</deployRepoUrl>
@@ -27,39 +32,11 @@
   
  	<build>
  		<plugins>
- 			<!-- 
- 			
- 				Calls vpdmf ConstructVPDMfArchive to generate archive.
- 				
- 				Please, configure the <arguments> as needed for the
- 				particular vpdmf model to be generated 
- 				
- 			 -->
  			<plugin>
  				<groupId>org.codehaus.mojo</groupId>
  				<artifactId>exec-maven-plugin</artifactId>
  				<version>1.2.1</version>
- 				<executions>
- 					<execution>
-			            <id>generate-vpdmf</id>
-			            <phase>generate-resources</phase>
-			            <goals>
-			              <goal>exec</goal>
-			            </goals>
-			            <inherited>false</inherited>
-				        <configuration>
-				          <executable>java</executable>
-				          <arguments>
-				            <argument>-classpath</argument>
-				            <classpath/>
-				            <argument>edu.isi.bmkeg.vpdmf.bin.ConstructVpdmfArchive</argument>
-				            <argument>${basedir}/ftd_vpdmfSpec.xml</argument>
-				            <argument>${project.build.directory}/${project.artifactId}-${project.version}.zip</argument>
-				          </arguments>
-				        </configuration>
-			        </execution>
- 				</executions>
- 			</plugin>
+  			</plugin>
  			
 			<!-- 
 				Installs artifact of non standard type zip
@@ -106,7 +83,7 @@
 	        	<groupId>org.codehaus.mojo</groupId>
 	    	    <artifactId>truezip-maven-plugin</artifactId>
 		        <version>1.1</version>
-	          </plugin>
+	        </plugin>
 	          
 	          <!-- 
 	          	Packages, installs, and deploys the jpa project
