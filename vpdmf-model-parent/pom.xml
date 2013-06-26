@@ -178,6 +178,8 @@
 				        		<modules>
 				        			<module>${project.artifactId}-jpa</module>
 				        			<module>${project.artifactId}-services</module>
+				        			<module>${project.artifactId}-as</module>
+				        			<module>${project.artifactId}-as-services</module>
 				        		</modules>
 				        	</project>]]>
 				        </echo>
