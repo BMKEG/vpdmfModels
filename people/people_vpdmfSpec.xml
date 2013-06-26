@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<vpdmf>
-    <artifactId>people</artifactId>
-    <groupId>edu.isi.bmkeg</groupId>
-    <version>0.0.2-SNAPSHOT</version>
-    <model name="people" type="MagicDraw" path="people.xml"/>
-    <viewsPath>specs</viewsPath>    
-</vpdmf>
