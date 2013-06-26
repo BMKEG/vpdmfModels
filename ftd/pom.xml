@@ -18,21 +18,24 @@
 		<vpdmf.model.path>ftd.xml</vpdmf.model.path>
 		<vpdmf.viewsPath>specs</vpdmf.viewsPath>
 		<vpdmf.nestedModels></vpdmf.nestedModels>  	
-<!-- 	<vpdmf.nestedModels>${basedir}/../people/</vpdmf.nestedModels>  -->  	
  	</properties>
   
  	<build>
  		<plugins>
+ 		
+ 			<!-- 
+ 				Plugins for building Model artifacts.
+ 				Configuration for these plugins are
+ 				specified in the pluginManagement section of the 
+ 				POM parent.
+ 			 -->
+ 			 
  			<plugin>
  				<groupId>org.codehaus.mojo</groupId>
  				<artifactId>exec-maven-plugin</artifactId>
  				<version>1.2.1</version>
   			</plugin>
  			
-			<!-- 
-				Installs artifact of non standard type zip
-				explicitly
-			 -->
  			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-install-plugin</artifactId>
@@ -48,10 +51,6 @@
  				</executions>
  			</plugin>
   			
-			<!-- 
-				Deploys artifact of non standard type zip
-				explicitly
-			 -->
  			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-deploy-plugin</artifactId>
@@ -72,10 +71,6 @@
 				<version>1.7</version>
 			</plugin>
 	 		
-	          
-	          <!-- 
-	          	Packages, installs, and deploys the jpa project
-	           -->
 		      <plugin>
 		        <artifactId>maven-invoker-plugin</artifactId>
 		        <version>1.8</version>
