@@ -17,6 +17,7 @@
 		<vpdmf.model.type>MagicDraw</vpdmf.model.type>
 		<vpdmf.model.path>triage.xml</vpdmf.model.path>
 		<vpdmf.viewsPath>specs</vpdmf.viewsPath>
+		<vpdmf.uimaPkgPattern>.model.</vpdmf.uimaPkgPattern>
 		<vpdmf.nestedModels>${basedir}/../people/ ${basedir}/../ftd/ ${basedir}/../digitalLibrary/</vpdmf.nestedModels>  	
  	</properties>
   
