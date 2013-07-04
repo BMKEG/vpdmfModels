@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<view name="ArticleDocument" type="Data" parent="FullTextDocument">
+<view name="ArticleDocument" type="Data" parent="FTD">
 	<primitives>
 		<primitive name="FTD">
 			<classes>
 				<class name="FTD"/>
 			</classes>
 			<pvLinks>
-				<pvLink c1="FTD" role="sections" pv2="FTDSection" c2="FTDSection"/>
 				<pvLink c1="FTD" role="citation" pv2="LiteratureCitation" c2="LiteratureCitation"/>
 			</pvLinks>
-		</primitive>
-		<primitive name="FTDSection" nullable="true">
-			<classes>
-				<class name="FTDSection"/>
-			</classes>
 		</primitive>
 		<primitive name="LiteratureCitation">
 			<classes>
