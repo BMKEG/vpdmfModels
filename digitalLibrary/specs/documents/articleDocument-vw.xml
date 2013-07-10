@@ -49,5 +49,6 @@
 		<indexElement pos="1" p="LiteratureCitation" c="ArticleCitation" a="pmid" uniqueKey="true"/>
 		<indexElement pos="2" p="FTD" c="FTD" a="name" />
 		<indexElement pos="3" p="FTD" c="FTD" a="checksum" />
+		<indexElement pos="4" p="JournalEpoch" c="JournalEpoch" a="startVol" />
 	</indexElements>
 </view>
