@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="TargetArticleList" type="Lookup" editable="false">
+	<primitives>
+		<primitive name="LiteratureCitation">
+			<classes>
+				<class name="ViewTable"/>
+				<class name="LiteratureCitation"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="LiteratureCitation" role="authorList" pv2="Author" c2="Author"/>
+				<pvLink c1="LiteratureCitation" role="triageScores" pv2="TriageScore" c2="TriageScore"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="Author" >
+			<classes>
+				<class name="ViewTable"/>
+				<class name="Person"/>
+				<class name="Author"/>
+			</classes>
+		</primitive>
+		<primitive name="TriageScore">
+			<classes>
+				<class name="ViewTable"/>
+				<class name="TriageScore"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="TriageScore" role="targetCorpus" pv2="TargetCorpus" c2="Corpus"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="TargetCorpus" >
+			<classes>
+				<class name="ViewTable"/>
+				<class name="Corpus"/>
+			</classes>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="$2$:$1$" />
+	<indexElements>
+		<indexElement pos="1" p="LiteratureCitation" c="ViewTable" a="vpdmfLabel" />
+		<indexElement pos="2" p="TargetCorpus" c="Corpus" a="name" />
+	</indexElements>
+</view>
