@@ -1,27 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <view name="ExperimentalVariable" type="Data" parent="OoevvElement">
 	<primitives>
-		<primitive name="ExperimentalVariable">
+		<primitive name="Term">
 			<classes>
+				<class name="Term"/>
 				<class name="OoevvElement"/>
 				<class name="ExperimentalVariable"/>
 			</classes>
 			<pvLinks>
-				<pvLink c1="OoevvElement" role="term" pv2="Term" c2="Term"/>
+				<pvLink c1="Term" role="ontology" pv2="Ontology" c2="Ontology"/>
+				<pvLink c1="OoevvElement" role="sets" pv2="Set" c2="OoevvElementSet"/>
 				<pvLink c1="ExperimentalVariable" role="measures" pv2="QualityDefinition" c2="Term"/>
 				<pvLink c1="ExperimentalVariable" role="scale" pv2="MeasurementScale" c2="MeasurementScale"/>
 			</pvLinks>
 			<conditions>
 				<condition c="OoevvElement" a="elementType" v="ExperimentalVariable"/>
 			</conditions>
-		</primitive>
-		<primitive name="Term">
-			<classes>
-				<class name="Term"/>
-			</classes>
-			<pvLinks>
-				<pvLink c1="Term" role="ontology" pv2="Ontology" c2="Ontology"/>
-			</pvLinks>
 		</primitive>
 		<primitive name="Ontology" nullable="true">
 			<classes>
@@ -35,18 +29,16 @@
 		</primitive>
 		<primitive name="MeasurementScale" nullable="true">
 			<classes>
+				<class name="Term"/>
 				<class name="MeasurementScale"/>
 			</classes>
-			<pvLinks>
-				<pvLink c1="MeasurementScale" role="term" pv2="ScaleDefinition" c2="Term"/>
-			</pvLinks>
 		</primitive>
-		<primitive name="ScaleDefinition" nullable="true">
+		<primitive name="Set" nullable="true">
 			<classes>
 				<class name="Term"/>
+				<class name="OoevvElementSet"/>
 			</classes>
-		</primitive>
-	</primitives>
+		</primitive>	</primitives>
 	<vpdmfLabel format="$3$" />
 	<indexElements>
 		<indexElement pos="1" p="Ontology" c="Ontology" a="shortName" />

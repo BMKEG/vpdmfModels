@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <view name="RelativeTermScale" type="Data" parent="MeasurementScale">
 	<primitives>
-		<primitive name="MeasurementScale">
+		<primitive name="Term">
 			<classes>
+				<class name="Term"/>
 				<class name="MeasurementScale"/>
 				<class name="RelativeTermScale" />
 			</classes>
 			<pvLinks>
-				<pvLink c1="MeasurementScale" role="term" pv2="Term" c2="Term"/>
+				<pvLink c1="Term" role="ontology" pv2="Ontology" c2="Ontology"/>
 				<pvLink c1="RelativeTermScale" role="allowedRelations" pv2="AllowedRelations" c2="Term"/>
 				<pvLink c1="RelativeTermScale" role="valueScale" pv2="NominalScaleWithAllowedTerms" c2="NominalScaleWithAllowedTerms"/>
 			</pvLinks>
@@ -16,14 +17,6 @@
 			</conditions>
 		</primitive>
 		<primitive lookupView="NominalScaleWithAllowedTerms" nullable="true"/>
-		<primitive name="Term">
-			<classes>
-				<class name="Term"/>
-			</classes>
-			<pvLinks>
-				<pvLink c1="Term" role="ontology" pv2="Ontology" c2="Ontology"/>
-			</pvLinks>
-		</primitive>
 		<primitive name="Ontology" nullable="true">
 			<classes>
 				<class name="Ontology"/>

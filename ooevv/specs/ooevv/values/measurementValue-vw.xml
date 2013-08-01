@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<view name="MeasurementValue" type="Data" editable="false">
+<view name="MeasurementValue" type="Data" editable="false" parent="Term">
 	<primitives>
-		<primitive name="MeasurementValue">
-			<classes>
-				<class name="MeasurementValue"/>
-			</classes>
-			<pvLinks>
-				<pvLink c1="MeasurementValue" role="term" pv2="Term" c2="Term"/>
-				<pvLink c1="MeasurementValue" role="scale" pv2="Scale" c2="MeasurementScale"/>
-			</pvLinks>
-		</primitive>
 		<primitive name="Term">
 			<classes>
 				<class name="Term"/>
+				<class name="MeasurementValue"/>
 			</classes>
 			<pvLinks>
 				<pvLink c1="Term" role="ontology" pv2="Ontology" c2="Ontology"/>
+				<pvLink c1="MeasurementValue" role="scale" pv2="Scale" c2="MeasurementScale"/>
 			</pvLinks>
 		</primitive>
 		<primitive name="Ontology" nullable="true">
@@ -25,15 +18,8 @@
 		</primitive>
 		<primitive name="Scale" nullable="true">
 			<classes>
-				<class name="MeasurementScale"/>
-			</classes>
-			<pvLinks>
-				<pvLink c1="MeasurementScale" role="term" pv2="ScaleTerm" c2="Term"/>
-			</pvLinks>
-		</primitive>
-		<primitive name="ScaleTerm" nullable="true">
-			<classes>
 				<class name="Term"/>
+				<class name="MeasurementScale"/>
 			</classes>
 			<pvLinks>
 				<pvLink c1="Term" role="ontology" pv2="ScaleOntology" c2="Ontology"/>

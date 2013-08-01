@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <view name="NominalScaleWithAllowedTerms" type="Data" parent="NominalScale">
 	<primitives>
-		<primitive name="MeasurementScale">
+		<primitive name="Term">
 			<classes>
+				<class name="Term"/>
 				<class name="MeasurementScale"/>
 				<class name="NominalScale"/>
 				<class name="NominalScaleWithAllowedTerms" />
 			</classes>
 			<pvLinks>
-				<pvLink c1="MeasurementScale" role="term" pv2="Term" c2="Term"/>
+				<pvLink c1="Term" role="ontology" pv2="Ontology" c2="Ontology"/>
 				<pvLink c1="NominalScaleWithAllowedTerms" role="nominalValues" pv2="AllowedValues" c2="NominalValue"/>
 			</pvLinks>
 			<conditions>
 				<condition c="MeasurementScale" a="classType" v="NominalScaleWithAllowedTerms"/>
 			</conditions>
-		</primitive>
-		<primitive name="Term">
-			<classes>
-				<class name="Term"/>
-			</classes>
-			<pvLinks>
-				<pvLink c1="Term" role="ontology" pv2="Ontology" c2="Ontology"/>
-			</pvLinks>
 		</primitive>
 		<primitive name="Ontology" nullable="true">
 			<classes>
@@ -30,17 +23,9 @@
 		</primitive>
 		<primitive name="AllowedValues" nullable="true">
 			<classes>
+				<class name="Term"/>
 				<class name="MeasurementValue"/>
 				<class name="NominalValue"/>
-			</classes>
-			<pvLinks>
-				<pvLink c1="MeasurementValue" role="term" pv2="AllowedTerms" c2="Term"/>
-			</pvLinks>
-		</primitive>
-		
-		<primitive name="AllowedTerms" nullable="true">
-			<classes>
-				<class name="Term"/>
 			</classes>
 			<pvLinks>
 				<pvLink c1="Term" role="ontology" pv2="AllowedTermsOntology" c2="Ontology"/>

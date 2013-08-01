@@ -1,24 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <view name="FileScale" type="Data" parent="MeasurementScale">
 	<primitives>
-		<primitive name="MeasurementScale">
-			<classes>
-				<class name="MeasurementScale"/>
-		</classes>
-			<pvLinks>
-				<pvLink c1="MeasurementScale" role="term" pv2="Term" c2="Term"/>
-			</pvLinks>
-			<conditions>
-				<condition c="MeasurementScale" a="classType" v="NaturalLanguageScale"/>
-			</conditions>
-		</primitive>
 		<primitive name="Term">
 			<classes>
 				<class name="Term"/>
+				<class name="MeasurementScale"/>
+				<class name="FileScale"/>
 			</classes>
 			<pvLinks>
 				<pvLink c1="Term" role="ontology" pv2="Ontology" c2="Ontology"/>
 			</pvLinks>
+			<conditions>
+				<condition c="MeasurementScale" a="classType" v="NaturalLanguageScale"/>
+			</conditions>
 		</primitive>
 		<primitive name="Ontology" nullable="true">
 			<classes>

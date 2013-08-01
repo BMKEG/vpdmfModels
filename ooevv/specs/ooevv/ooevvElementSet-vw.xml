@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<view name="OoevvElementSet" type="Data">
+<view name="OoevvElementSet" type="Data" parent="Term">
 	<primitives>
-		<primitive name="OoevvElementSet">
-			<classes>
-				<class name="OoevvElementSet"/>
-			</classes>
-			<pvLinks>
-				<pvLink c1="OoevvElementSet" role="elements" pv2="OoevvElement" c2="OoevvElement"/>
-				<pvLink c1="OoevvElementSet" role="term" pv2="Term" c2="Term"/>
-			</pvLinks>
-		</primitive>
 		<primitive name="Term">
 			<classes>
 				<class name="Term"/>
+				<class name="OoevvElementSet"/>
 			</classes>
 			<pvLinks>
 				<pvLink c1="Term" role="ontology" pv2="Ontology" c2="Ontology"/>
+				<pvLink c1="OoevvElementSet" role="elements" pv2="OoevvElement" c2="OoevvElement"/>
 			</pvLinks>
 		</primitive>
 		<primitive name="Ontology" nullable="true">
@@ -24,27 +17,12 @@
 			</classes>
 		</primitive>
 		<primitive name="OoevvElement" nullable="true">
-			<classes>
-				<class name="OoevvElement"/>
-			</classes>
-			<pvLinks>
-				<pvLink c1="OoevvElement" role="term" pv2="OoevvElementDefinition" c2="Term"/>
-			</pvLinks>
-		</primitive>
-		<primitive name="OoevvElementDefinition" nullable="true">
-			<classes>
+			<classes>			
 				<class name="Term"/>
+				<class name="OoevvElement"/>
 			</classes>
 		</primitive>
 	</primitives>
-<!--	<viewLinks>
- 		<viewLink name="Variable1" setRelation="Superset"
-				 v1="OoevvElementSet" p1="ExperimentalVariable" c1="ExperimentalVariable"
-				 v2="ExperimentalVariable" p2="ExperimentalVariable" c2="ExperimentalVariable"/>
- 		<viewLink name="Variable2" setRelation="Superset"
-				 v1="OoevvElementSet" p1="VariableDefinition" c1="Term"
-				 v2="ExperimentalVariable" p2="Term" c2="Term"/> 
-	</viewLinks>-->
 	<vpdmfLabel format="$3$" />
 	<indexElements>
 		<indexElement pos="1" p="Ontology" c="Ontology" a="shortName" />

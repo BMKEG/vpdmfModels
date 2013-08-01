@@ -1,24 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <view name="NaturalLanguageScale" type="Data" parent="MeasurementScale">
 	<primitives>
-		<primitive name="MeasurementScale">
+		<primitive name="Term">
 			<classes>
+				<class name="Term"/>
 				<class name="MeasurementScale"/>
 		</classes>
 			<pvLinks>
-				<pvLink c1="MeasurementScale" role="term" pv2="Term" c2="Term"/>
+				<pvLink c1="Term" role="ontology" pv2="Ontology" c2="Ontology"/>
 			</pvLinks>
 			<conditions>
 				<condition c="MeasurementScale" a="classType" v="NaturalLanguageScale"/>
 			</conditions>
-		</primitive>
-		<primitive name="Term">
-			<classes>
-				<class name="Term"/>
-			</classes>
-			<pvLinks>
-				<pvLink c1="Term" role="ontology" pv2="Ontology" c2="Ontology"/>
-			</pvLinks>
 		</primitive>
 		<primitive name="Ontology" nullable="true">
 			<classes>

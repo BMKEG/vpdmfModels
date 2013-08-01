@@ -9,7 +9,7 @@
 			<pvLinks>
 				<pvLink c1="KefedModel" role="elements" pv2="KefedModelElement" c2="KefedModelElement"/>
 				<pvLink c1="KefedModel" role="edges" pv2="KefedModelEdge" c2="KefedModelEdge"/>
-				<pvLink c1="KefedModel" role="curators" pv2="Curator" c2="Person"/>
+				<pvLink c1="KefedModel" role="curators" pv2="Curator" c2="KefedCurator"/>
 				<pvLink c1="KefedModel" role="reference" pv2="Reference" c2="LiteratureCitation"/>
 				<pvLink c1="KefedModel" role="ooevv" pv2="OoevvElementSet" c2="OoevvElementSet"/>
 				<pvLink c1="PlannedExptProtocol" role="question" pv2="Question" c2="Question"/>
@@ -17,13 +17,10 @@
 		</primitive>
 		<primitive name="OoevvElementSet">
 			<classes>
+				<class name="Term"/>
 				<class name="OoevvElementSet"/>
 			</classes>
-			<pvLinks>
-				<pvLink c1="OoevvElementSet" role="term" pv2="OoevvTerm" c2="Term"/>
-			</pvLinks>
 		</primitive>
-		<primitive name="OoevvTerm" lookupView="TermLU"/>
 		<primitive name="KefedModelElement" nullable="true">
 			<classes>
 				<class name="ViewTable"/>
@@ -40,6 +37,7 @@
 			<classes>
 				<class name="ViewTable"/>
 				<class name="Person"/>
+				<class name="KefedCurator"/>
 			</classes>
 		</primitive>
 		<primitive name="Reference" nullable="true">

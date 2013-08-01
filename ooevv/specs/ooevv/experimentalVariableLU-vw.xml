@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <view name="ExperimentalVariableLU" type="Lookup" editable="false">
 	<primitives>
-		<primitive name="ExperimentalVariableLU">
+		<primitive name="Term">
 			<classes>
 				<class name="ViewTable"/>
+				<class name="Term"/>
 				<class name="OoevvElement"/>
 				<class name="ExperimentalVariable"/>
 			</classes>
@@ -11,6 +12,6 @@
 	</primitives>
 	<vpdmfLabel format="$1$" />
 	<indexElements>
-		<indexElement pos="1" p="ExperimentalVariableLU" c="ViewTable" a="vpdmfLabel" />
+		<indexElement pos="1" p="Term" c="ViewTable" a="vpdmfLabel" />
 	</indexElements>
 </view>

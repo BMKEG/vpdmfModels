@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <view name="CompositeScale" type="Data" parent="MeasurementScale">
 	<primitives>
-		<primitive name="MeasurementScale">
+		<primitive name="Term">
 			<classes>
+				<class name="Term"/>
 				<class name="MeasurementScale"/>
 				<class name="CompositeScale" />
 			</classes>
 			<pvLinks>
-				<pvLink c1="MeasurementScale" role="term" pv2="Term" c2="Term"/>
+				<pvLink c1="Term" role="ontology" pv2="Ontology" c2="Ontology"/>
 				<pvLink c1="CompositeScale" role="hasParts" pv2="ExperimentalVariable" c2="ExperimentalVariable"/>
 			</pvLinks>
 			<conditions>
 				<condition c="MeasurementScale" a="classType" v="CompositeScale"/>
 			</conditions>
-		</primitive>
-		<primitive name="Term">
-			<classes>
-				<class name="Term"/>
-			</classes>
-			<pvLinks>
-				<pvLink c1="Term" role="ontology" pv2="Ontology" c2="Ontology"/>
-			</pvLinks>
 		</primitive>
 		<primitive name="Ontology" nullable="true">
 			<classes>
@@ -29,21 +22,13 @@
 		</primitive>
 		<primitive name="ExperimentalVariable" nullable="true">
 			<classes>			
+				<class name="Term"/>
 				<class name="OoevvElement"/>
 				<class name="ExperimentalVariable"/>
 			</classes>
 			<pvLinks>
-				<pvLink c1="OoevvElement" role="term" pv2="ExperimentalVariableTerm" c2="Term"/>
-			</pvLinks>
-			
-		</primitive>
-		<primitive name="ExperimentalVariableTerm" nullable="true">
-			<classes>
-				<class name="Term"/>
-			</classes>
-			<pvLinks>
 				<pvLink c1="Term" role="ontology" pv2="ExperimentalVariableOntology" c2="Ontology"/>
-			</pvLinks>
+			</pvLinks>			
 		</primitive>
 		<primitive name="ExperimentalVariableOntology" nullable="true">
 			<classes>

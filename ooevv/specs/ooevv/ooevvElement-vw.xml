@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<view name="OoevvElement" type="Data" editable="false">
+<view name="OoevvElement" type="Data" editable="false" parent="Term">
 	<primitives>
-		<primitive name="OoevvElement">
-			<classes>
-				<class name="OoevvElement"/>
-			</classes>
-			<pvLinks>
-				<pvLink c1="OoevvElement" role="term" pv2="Term" c2="Term"/>
-			</pvLinks>
-		</primitive>
 		<primitive name="Term">
 			<classes>
 				<class name="Term"/>
+				<class name="OoevvElement"/>
 			</classes>
 			<pvLinks>
 				<pvLink c1="Term" role="ontology" pv2="Ontology" c2="Ontology"/>
+				<pvLink c1="OoevvElement" role="sets" pv2="Set" c2="OoevvElementSet"/>
 			</pvLinks>
 		</primitive>
 		<primitive name="Ontology" nullable="true">
 			<classes>
 				<class name="Ontology"/>
+			</classes>
+		</primitive>
+		<primitive name="Set" nullable="true">
+			<classes>
+				<class name="Term"/>
+				<class name="OoevvElementSet"/>
 			</classes>
 		</primitive>
 	</primitives>

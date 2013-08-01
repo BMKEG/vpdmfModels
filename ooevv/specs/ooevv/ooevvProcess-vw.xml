@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <view name="OoevvProcess" type="Data" parent="OoevvElement">
 	<primitives>
-		<primitive name="OoevvProcess">
+		<primitive name="Term">
 			<classes>
+				<class name="Term"/>
 				<class name="OoevvElement"/>
 				<class name="OoevvProcess"/>
 			</classes>
 			<pvLinks>
-				<pvLink c1="OoevvElement" role="term" pv2="Term" c2="Term"/>
+				<pvLink c1="Term" role="ontology" pv2="Ontology" c2="Ontology"/>
+				<pvLink c1="OoevvElement" role="sets" pv2="Set" c2="OoevvElementSet"/>
 				<pvLink c1="OoevvProcess" role="obiTerm" pv2="ObiDefinition" c2="Term"/>
 			</pvLinks>
 			<conditions>
 				<condition c="OoevvElement" a="elementType" v="OoevvProcess"/>
 			</conditions>
 		</primitive>
-		<primitive name="Term">
-			<classes>
-				<class name="Term"/>
-			</classes>
-			<pvLinks>
-				<pvLink c1="Term" role="ontology" pv2="Ontology" c2="Ontology"/>
-			</pvLinks>
-		</primitive>
 		<primitive name="Ontology" nullable="true">
 			<classes>
 				<class name="Ontology"/>
+			</classes>
+		</primitive>
+		<primitive name="Set" nullable="true">
+			<classes>
+				<class name="Term"/>
+				<class name="OoevvElementSet"/>
 			</classes>
 		</primitive>
 		<primitive name="ObiDefinition" nullable="true">

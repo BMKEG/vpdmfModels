@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <view name="NominalScaleWithAllowedTermsLU" type="Lookup" editable="false">
 	<primitives>
-		<primitive name="NominalScaleWithAllowedTermsLU" nullable="true">
+		<primitive name="Term" nullable="true">
 			<classes>
 				<class name="ViewTable"/>
+				<class name="Term"/>
 				<class name="NominalScale"/>
 				<class name="NominalScaleWithAllowedTerms"/>
 			</classes>
@@ -11,6 +12,6 @@
 	</primitives>
 	<vpdmfLabel format="$1$" />
 	<indexElements>
-		<indexElement pos="1" p="NominalScaleWithAllowedTermsLU" c="ViewTable" a="indexString" />
+		<indexElement pos="1" p="Term" c="ViewTable" a="indexString" />
 	</indexElements>
 </view>

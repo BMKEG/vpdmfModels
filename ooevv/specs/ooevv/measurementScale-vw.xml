@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<view name="MeasurementScale" type="Data" editable="false">
+<view name="MeasurementScale" type="Data" editable="false" parent="Term">
 	<primitives>
-		<primitive name="MeasurementScale">
-			<classes>
-				<class name="MeasurementScale"/>
-			</classes>
-			<pvLinks>
-				<pvLink c1="MeasurementScale" role="term" pv2="Term" c2="Term"/>
-			</pvLinks>
-		</primitive>
 		<primitive name="Term">
 			<classes>
 				<class name="Term"/>
+				<class name="MeasurementScale"/>
 			</classes>
 			<pvLinks>
 				<pvLink c1="Term" role="ontology" pv2="Ontology" c2="Ontology"/>
