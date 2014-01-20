@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="TriageClassificationModel" type="Data" editable="true">
+	<primitives>
+		<primitive name="TriageClassificationModel" >
+			<classes>
+				<class name="TriageClassificationModel"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="TriageClassificationModel" role="triageCorpus" pv2="TriageCorpus" c2="TriageCorpus"/>			
+				<pvLink c1="TriageClassificationModel" role="targetCorpus" pv2="TargetCorpus" c2="Corpus"/>			
+			</pvLinks>
+		</primitive>
+		<primitive name="TriageCorpus" nullable="true">
+			<classes>
+				<class name="Corpus"/>
+				<class name="TriageCorpus"/>
+			</classes>
+			<conditions>
+				<condition c="Corpus" a="corpusType" v="TriageCorpus"/>
+			</conditions>
+		</primitive>
+		<primitive name="TargetCorpus" >
+			<classes>
+				<class name="Corpus"/>
+			</classes>
+			<conditions>
+				<condition c="Corpus" a="corpusType" v="ArticleCorpus"/>
+			</conditions>
+		</primitive>
+	</primitives>
+	<vpdmfLabel format="$1$" />
+	<indexElements>
+		<indexElement pos="1" p="TriageClassificationModel" c="TriageClassificationModel" a="name" />
+		<indexElement pos="2" p="TriageCorpus" c="Corpus" a="name" />
+		<indexElement pos="3" p="TargetCorpus" c="Corpus" a="name" />
+	</indexElements>
+</view>

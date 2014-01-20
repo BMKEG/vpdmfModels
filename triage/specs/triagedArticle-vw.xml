@@ -9,6 +9,7 @@
 				<pvLink c1="TriageScore" role="citation" pv2="LiteratureCitation" c2="LiteratureCitation"/>
 				<pvLink c1="TriageScore" role="targetCorpus" pv2="TargetCorpus" c2="Corpus"/>
 				<pvLink c1="TriageScore" role="triageCorpus" pv2="TriageCorpus" c2="TriageCorpus"/>
+				<pvLink c1="TriageScore" role="features" pv2="TriageFeature" c2="TriageFeature"/>
 			</pvLinks>
 		</primitive>
 		<primitive name="TargetCorpus" >
@@ -41,13 +42,17 @@
 				<class name="Author"/>
 			</classes>
 		</primitive>
+		<primitive name="TriageFeature" nullable="true">
+			<classes>
+				<class name="TriageFeature"/>
+			</classes>
+		</primitive>
 	</primitives>
-	<vpdmfLabel format="$1$; $2$/$3$ ($4$/$5$)" />
+	<vpdmfLabel format="$1$; $2$/$3$ ($4$)" />
 	<indexElements>
 		<indexElement pos="1" p="LiteratureCitation" c="ViewTable" a="vpdmfLabel" />
 		<indexElement pos="2" p="TriageScore" c="TriageScore" a="inOutCode" />
 		<indexElement pos="3" p="TriageScore" c="TriageScore" a="inScore" />
 		<indexElement pos="4" p="TargetCorpus" c="Corpus" a="name" />
-		<indexElement pos="5" p="TriageCorpus" c="Corpus" a="name" />
 	</indexElements>
 </view>

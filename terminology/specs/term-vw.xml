@@ -18,6 +18,7 @@
 		<indexElement pos="1" p="Ontology" c="Ontology" a="shortName" />
 		<indexElement pos="2" p="Term" c="Term" a="shortTermId" />
 		<indexElement pos="3" p="Term" c="Term" a="termValue" />
-		<indexElement pos="4" p="TerminologyCuratorLU" c="Person" a="fullName" />
+		<indexElement pos="4" p="TerminologyCuratorLU" c="Person" a="initials" />
+		<indexElement pos="5" p="TerminologyCuratorLU" c="Person" a="surname" />
 	</indexElements>
 </view>

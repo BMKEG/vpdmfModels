@@ -7,6 +7,7 @@
 			</classes>
 			<pvLinks>
 				<pvLink c1="FTD" role="citation" pv2="LiteratureCitation" c2="LiteratureCitation"/>
+				<pvLink c1="FTD" role="ruleSet" pv2="FTDRuleSet" c2="FTDRuleSet"/>
 			</pvLinks>
 		</primitive>
 		<primitive name="LiteratureCitation">
@@ -34,13 +35,10 @@
 			<classes>
 				<class name="Journal"/>
 			</classes>
-			<pvLinks>
-				<pvLink c1="Journal" role="epochs" pv2="JournalEpoch" c2="JournalEpoch"/>
-			</pvLinks>
 		</primitive>
-		<primitive name="JournalEpoch" nullable="true">
+		<primitive name="FTDRuleSet">
 			<classes>
-				<class name="JournalEpoch"/>
+				<class name="FTDRuleSet"/>
 			</classes>
 		</primitive>
 	</primitives>		
@@ -49,6 +47,6 @@
 		<indexElement pos="1" p="LiteratureCitation" c="ArticleCitation" a="pmid" uniqueKey="true"/>
 		<indexElement pos="2" p="FTD" c="FTD" a="name" />
 		<indexElement pos="3" p="FTD" c="FTD" a="checksum" />
-		<indexElement pos="4" p="JournalEpoch" c="JournalEpoch" a="startVol" />
+		<indexElement pos="4" p="FTDRuleSet" c="FTDRuleSet" a="rsName" />
 	</indexElements>
 </view>

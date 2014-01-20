@@ -1,32 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<view name="OoevvElementSet" type="Data" parent="Term">
+<view name="OoevvElementSet" type="Data" parent="Ontology">
 	<primitives>
-		<primitive name="Term">
-			<classes>
-				<class name="Term"/>
-				<class name="OoevvElementSet"/>
-			</classes>
-			<pvLinks>
-				<pvLink c1="Term" role="ontology" pv2="Ontology" c2="Ontology"/>
-				<pvLink c1="OoevvElementSet" role="elements" pv2="OoevvElement" c2="OoevvElement"/>
-			</pvLinks>
-		</primitive>
-		<primitive name="Ontology" nullable="true">
+		<primitive name="Ontology">
 			<classes>
 				<class name="Ontology"/>
-			</classes>
-		</primitive>
-		<primitive name="OoevvElement" nullable="true">
-			<classes>			
-				<class name="Term"/>
-				<class name="OoevvElement"/>
+				<class name="OoevvElementSet"/>
 			</classes>
 		</primitive>
 	</primitives>
-	<vpdmfLabel format="$3$" />
+	<vpdmfLabel format="OoevvElementSet: $1$ ($2$)" />
 	<indexElements>
 		<indexElement pos="1" p="Ontology" c="Ontology" a="shortName" />
-		<indexElement pos="2" p="Term" c="Term" a="shortTermId" />
-		<indexElement pos="3" p="Term" c="Term" a="termValue" />
+		<indexElement pos="2" p="Ontology" c="Ontology" a="displayName" />
 	</indexElements>
 </view>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<vpdmf>
+    <artifactId>cosi</artifactId>
+    <data/>
+    <groupId>edu.isi.bmkeg</groupId>
+    <model type="MagicDraw" path="cosi.xml" name="cosi"/>
+    <ontologize/>
+    <solr/>
+    <version>0.0.1-SNAPSHOT</version>
+    <viewsPath>specs</viewsPath>
+</vpdmf>

@@ -7,6 +7,7 @@
 			</classes>
 			<pvLinks>
 				<pvLink c1="JournalEpoch" role="journal" pv2="Journal" c2="Journal"/>
+				<pvLink c1="JournalEpoch" role="rules" pv2="FTDRuleSet" c2="FTDRuleSet"/>
 			</pvLinks>
 		</primitive>
 		<primitive name="Journal">
@@ -14,12 +15,17 @@
 				<class name="Journal"/>
 			</classes>
 		</primitive>
+		<primitive name="FTDRuleSet" nullable="true">
+			<classes>
+				<class name="FTDRuleSet"/>
+			</classes>
+		</primitive>
 	</primitives>
-	<vpdmfLabel format="$1$." />
+	<vpdmfLabel format="$1$ ($2$-$3$)" />
 	<indexElements>
 		<indexElement pos="1" p="Journal" c="Journal" a="abbr" />
 		<indexElement pos="2" p="JournalEpoch" c="JournalEpoch" a="startVol" />
 		<indexElement pos="3" p="JournalEpoch" c="JournalEpoch" a="endVol" />
-		<indexElement pos="4" p="JournalEpoch" c="JournalEpoch" a="ruleFileName" unique="true" />
+		<indexElement pos="4" p="FTDRuleSet" c="FTDRuleSet" a="rsName" />
 	</indexElements>
 </view>

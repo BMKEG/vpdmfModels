@@ -17,7 +17,7 @@
 		</primitive>
 		<primitive name="OoevvElementSet">
 			<classes>
-				<class name="Term"/>
+				<class name="Ontology"/>
 				<class name="OoevvElementSet"/>
 			</classes>
 		</primitive>

@@ -10,7 +10,7 @@
 			<pvLinks>
 				<pvLink c1="Term" role="ontology" pv2="Ontology" c2="Ontology"/>
 				<pvLink c1="MeasurementValue" role="scale" pv2="Scale" c2="MeasurementScale"/>
-				<pvLink c1="RelativeValue" role="valueMappings" pv2="RelativeValueMapping" c2="RelativeValueMapping"/>
+				<pvLink c1="RelativeValue" role="valMap" pv2="RelativeValueMapping" c2="RelativeValueMapping"/>
 			</pvLinks>
 		</primitive>
 		<primitive name="Ontology" nullable="true">
@@ -70,7 +70,7 @@
 			</classes>
 		</primitive>
 	</primitives>
-	<vpdmfLabel format="$3$" />
+	<vpdmfLabel format="OoevvElementSet: $1$:$2$ ($3$)" />
 	<indexElements>
 		<indexElement pos="1" p="Ontology" c="Ontology" a="shortName" />
 		<indexElement pos="2" p="Term" c="Term" a="shortTermId" />

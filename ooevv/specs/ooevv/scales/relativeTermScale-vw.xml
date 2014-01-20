@@ -9,8 +9,8 @@
 			</classes>
 			<pvLinks>
 				<pvLink c1="Term" role="ontology" pv2="Ontology" c2="Ontology"/>
-				<pvLink c1="RelativeTermScale" role="allowedRelations" pv2="AllowedRelations" c2="Term"/>
-				<pvLink c1="RelativeTermScale" role="valueScale" pv2="NominalScaleWithAllowedTerms" c2="NominalScaleWithAllowedTerms"/>
+				<pvLink c1="RelativeTermScale" role="allowReln" pv2="AllowedRelations" c2="Term"/>
+				<pvLink c1="RelativeTermScale" role="valSc" pv2="NominalScaleWithAllowedTerms" c2="NominalScaleWithAllowedTerms"/>
 			</pvLinks>
 			<conditions>
 				<condition c="MeasurementScale" a="classType" v="RelativeTermScale"/>
@@ -20,6 +20,7 @@
 		<primitive name="Ontology" nullable="true">
 			<classes>
 				<class name="Ontology"/>
+				<class name="OoevvElementSet"/>
 			</classes>
 		</primitive>
 		<primitive name="AllowedRelations" nullable="true">
@@ -36,7 +37,7 @@
 			</classes>
 		</primitive>
 	</primitives>
-	<vpdmfLabel format="$3$" />
+	<vpdmfLabel format="RelativeTermScale: $1$:$2$ ($3$)" />
 	<indexElements>
 		<indexElement pos="1" p="Ontology" c="Ontology" a="shortName" />
 		<indexElement pos="2" p="Term" c="Term" a="shortTermId" />

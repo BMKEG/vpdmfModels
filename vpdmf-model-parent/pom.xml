@@ -1,151 +1,143 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>edu.isi.bmkeg</groupId>
-  <artifactId>vpdmf-model-parent</artifactId>
-  <version>1.1.3-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  <name>vpdmf-model-parent</name>
-  
-  	<parent>
-	    <groupId>edu.isi.bmkeg</groupId>
-	    <artifactId>bmkeg-parent</artifactId>
-	    <version>1.1.3-SNAPSHOT</version>
-	    <relativePath>../../bmkeg-parent</relativePath>
- 	</parent>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>edu.isi.bmkeg</groupId>
+	<artifactId>vpdmf-model-parent</artifactId>
+	<version>1.1.5-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>vpdmf-model-parent</name>
 
- 	<properties>
- 		<bmkegParentVersion>${project.parent.version}</bmkegParentVersion>
- 		<!-- Use this setting for releases -->
- 	<!-- 
- 		<deployRepoUrl>${project.distributionManagement.repository.url}</deployRepoUrl>
- 		<deployRepoId>${project.distributionManagement.repository.id}</deployRepoId>
-	 -->
-  		<!-- Use this setting for SNAPSHOTS -->
-		<deployRepoUrl>${project.distributionManagement.snapshotRepository.url}</deployRepoUrl> 
- 		<deployRepoId>${project.distributionManagement.snapshotRepository.id}</deployRepoId>
- 	</properties>
- 
-  
- 	<build>
- 		<plugins>
- 		</plugins>
- 		
- 		<pluginManagement>
- 			<plugins>
- 		
- 		 	<plugin>
- 				<groupId>org.codehaus.mojo</groupId>
- 				<artifactId>exec-maven-plugin</artifactId>
- 				<version>1.2.1</version>
- 				<executions>
- 					<execution>
-			            <id>generate-vpdmf</id>
-			            <phase>generate-resources</phase>
-			            <goals>
- 			              <goal>exec</goal>
-			            </goals>
-			            <inherited>true</inherited>
-			        	<configuration>
-				          <executable>java</executable>
-				       	  <commandlineArgs>
-				       	  	-classpath %classpath edu.isi.bmkeg.vpdmf.bin.BuildVpdmfMysqlMavenZip ${basedir} ${vpdmf.nestedModels} ${project.build.directory}/ ${bmkegParentVersion}
-			       	  	  </commandlineArgs>
-				        </configuration>
-			        </execution>
- 					<execution>
-			            <id>generate-maven-models</id>
-			            <phase>generate-resources</phase>
-			            <goals>
- 			              <goal>exec</goal>
-			            </goals>
-			            <inherited>true</inherited>
-			        	<configuration>
-				          <executable>java</executable>
-				       	  <commandlineArgs>
-				       	  	-classpath %classpath edu.isi.bmkeg.vpdmf.bin.BuildVpdmfModelMavenProject ${basedir} ${vpdmf.nestedModels} ${project.build.directory}/projects/ ${bmkegParentVersion}
-			       	  	  </commandlineArgs>
-				        </configuration>
-			        </execution>
- 					<execution>
-			            <id>generate-maven-services</id>
-			            <phase>generate-resources</phase>
-			            <goals>
- 			              <goal>exec</goal>
-			            </goals>
-			            <inherited>true</inherited>
-			        	<configuration>
-				          <executable>java</executable>
-				       	  <commandlineArgs>
-				       	  	-classpath %classpath edu.isi.bmkeg.vpdmf.bin.BuildVpdmfServicesMavenProject ${basedir} ${vpdmf.nestedModels} ${project.build.directory}/projects/ ${bmkegParentVersion}
-			       	  	  </commandlineArgs>
-				        </configuration>
-			        </execution>
- 				</executions>
- 			</plugin>
- 		
-				<!-- 
-					Installs artifact of non standard type zip
-					explicitly
-				 -->
-	 			<plugin>
+	<parent>
+		<groupId>edu.isi.bmkeg</groupId>
+		<artifactId>bmkeg-parent</artifactId>
+		<version>1.1.5-SNAPSHOT</version>
+		<relativePath>../../bmkeg-parent</relativePath>
+	</parent>
+
+	<properties>
+		<bmkegParentVersion>${project.parent.version}</bmkegParentVersion>
+		<!-- Use this setting for releases -->
+		<!-- <deployRepoUrl>${project.distributionManagement.repository.url}</deployRepoUrl> 
+			<deployRepoId>${project.distributionManagement.repository.id}</deployRepoId> -->
+		<!-- Use this setting for SNAPSHOTS -->
+		<deployRepoUrl>${project.distributionManagement.snapshotRepository.url}</deployRepoUrl>
+		<deployRepoId>${project.distributionManagement.snapshotRepository.id}</deployRepoId>
+	</properties>
+
+	<build>
+		<plugins>
+		</plugins>
+
+		<pluginManagement>
+			<plugins>
+
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>exec-maven-plugin</artifactId>
+					<version>1.2.1</version>
+					<executions>
+						<execution>
+							<id>generate-vpdmf</id>
+							<phase>generate-resources</phase>
+							<goals>
+								<goal>exec</goal>
+							</goals>
+							<inherited>true</inherited>
+							<configuration>
+								<executable>java</executable>
+								<commandlineArgs>
+									-classpath %classpath edu.isi.bmkeg.vpdmf.bin.BuildVpdmfMysqlMavenZip ${basedir} ${vpdmf.nestedModels} ${project.build.directory}/ ${bmkegParentVersion}
+								</commandlineArgs>
+							</configuration>
+						</execution>
+						<execution>
+							<id>generate-maven-models</id>
+							<phase>generate-resources</phase>
+							<goals>
+								<goal>exec</goal>
+							</goals>
+							<inherited>true</inherited>
+							<configuration>
+								<executable>java</executable>
+								<commandlineArgs>
+									-classpath %classpath edu.isi.bmkeg.vpdmf.bin.BuildVpdmfModelMavenProject ${basedir} ${vpdmf.nestedModels} ${project.build.directory}/projects/ ${bmkegParentVersion}
+								</commandlineArgs>
+							</configuration>
+						</execution>
+						<execution>
+							<id>generate-maven-services</id>
+							<phase>generate-resources</phase>
+							<goals>
+								<goal>exec</goal>
+							</goals>
+							<inherited>true</inherited>
+							<configuration>
+								<executable>java</executable>
+								<commandlineArgs>
+									-classpath %classpath edu.isi.bmkeg.vpdmf.bin.BuildVpdmfServicesMavenProject ${basedir} ${vpdmf.nestedModels} ${project.build.directory}/projects/ ${bmkegParentVersion}
+								</commandlineArgs>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+
+				<!-- Installs artifact of non standard type zip explicitly -->
+				<plugin>
 					<artifactId>maven-install-plugin</artifactId>
-	 				<executions>
-	 					<execution>
-				            <id>install-vpdmf</id>
-				            <phase>phase-set-in-children</phase>
-				            <goals>
-				              <goal>install-file</goal>
-				            </goals>
-				            <inherited>true</inherited>
-					        <configuration>
-					          <file>${project.build.directory}/${project.artifactId}-mysql-${project.version}.zip</file>
-							  <packaging>zip</packaging>
-							  <classifier>mysql</classifier>
-							  <pomFile>${basedir}/pom.xml</pomFile>
-					        </configuration>
-				        </execution>
-	 				</executions>
-	 			</plugin>
+					<executions>
+						<execution>
+							<id>install-vpdmf</id>
+							<phase>phase-set-in-children</phase>
+							<goals>
+								<goal>install-file</goal>
+							</goals>
+							<inherited>true</inherited>
+							<configuration>
+								<file>${project.build.directory}/${project.artifactId}-mysql-${project.version}.zip</file>
+								<packaging>zip</packaging>
+								<classifier>mysql</classifier>
+								<pomFile>${basedir}/pom.xml</pomFile>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
 
-			<!-- 
-				Deploys artifact of non standard type zip
-				explicitly
-			 -->
- 			<plugin>
-				<artifactId>maven-deploy-plugin</artifactId>
- 				<executions>
- 					<execution>
-			            <id>deploy-vpdmf</id>
-			            <phase>phase-set-in-children</phase>
-			            <goals>
-			              <goal>deploy-file</goal>
-			            </goals>
-			            <inherited>true</inherited>
-				        <configuration>
-				          <file>${project.build.directory}/${project.artifactId}-mysql-${project.version}.zip</file>
-				       	  <repositoryId>${deployRepoId}</repositoryId>
-				          <url>${deployRepoUrl}</url>
-							  <classifier>mysql</classifier>
-						  <packaging>zip</packaging>
-						  <pomFile>${basedir}/pom.xml</pomFile>
-				        </configuration>
-			        </execution>
- 				</executions>
- 			</plugin>
+				<!-- Deploys artifact of non standard type zip explicitly -->
+				<plugin>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>deploy-vpdmf</id>
+							<phase>phase-set-in-children</phase>
+							<goals>
+								<goal>deploy-file</goal>
+							</goals>
+							<inherited>true</inherited>
+							<configuration>
+								<file>${project.build.directory}/${project.artifactId}-mysql-${project.version}.zip</file>
+								<repositoryId>${deployRepoId}</repositoryId>
+								<url>${deployRepoUrl}</url>
+								<classifier>mysql</classifier>
+								<packaging>zip</packaging>
+								<pomFile>${basedir}/pom.xml</pomFile>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
 
-			<plugin>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<version>1.7</version>
-		        <executions>
-		          <execution>
-		          <id>generate-multimodule-pom</id>
-		          <phase>prepare-package</phase>
-		            <goals>
-		              <goal>run</goal>
-		            </goals>
-		            <configuration>
-		              <target>
-				        <echo file="${project.build.directory}/projects/pom.xml"><![CDATA[
+				<plugin>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>1.7</version>
+					<executions>
+						<execution>
+							<id>generate-multimodule-pom</id>
+							<phase>prepare-package</phase>
+							<goals>
+								<goal>run</goal>
+							</goals>
+							<configuration>
+								<target>
+									<echo file="${project.build.directory}/projects/pom.xml"><![CDATA[
 				        	<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 				        		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 				        		<modelVersion>4.0.0</modelVersion>
@@ -182,71 +174,69 @@
 				        			<module>${project.artifactId}-as-services</module>
 				        		</modules>
 				        	</project>]]>
-				        </echo>
-		              </target>
-		            </configuration>
-		          </execution>
-		        </executions>				
-			</plugin>
+									</echo>
+								</target>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
 
-	          <!-- 
-	          	Packages, installs, and deploys the jpa project
-	           -->
-		      <plugin>
-		        <artifactId>maven-invoker-plugin</artifactId>
-		        <configuration>
-				   <pom>${project.build.directory}/projects/pom.xml</pom>
-		        </configuration>
-		        <executions>
-		          <execution>
-		            <id>package-subprojects</id>
-		            <phase>package</phase>
-		            <goals>
-		              <goal>run</goal>
-		            </goals>
-		            <configuration>
-		            	<goals>
-		            		<goal>package</goal>
-		            	</goals>
-		            </configuration>
-		          </execution>
-		          <execution>
-		            <id>install-subprojects</id>
-		            <phase>install</phase>
-		            <goals>
-		              <goal>run</goal>
-		            </goals>
-		            <configuration>
-		            	<goals>
-		            		<goal>install</goal>
-		            	</goals>
-		            </configuration>
-		          </execution>
-		          <execution>
-		            <id>deploy-subprojects</id>
-		            <phase>deploy</phase>
-		            <goals>
-		              <goal>run</goal>
-		            </goals>
-		            <configuration>
-		            	<goals>
-		            		<goal>deploy</goal>
-		            	</goals>
-		            </configuration>
-		          </execution>
-		        </executions>
-		      </plugin>
- 			
- 			</plugins>
- 		
- 		</pluginManagement>
- 	</build>
- 	 	
- 	<dependencies>
-       <dependency>
-         <groupId>edu.isi.bmkeg</groupId>
-         <artifactId>vpdmfGenerator</artifactId>
-         <scope>runtime</scope>
-       </dependency> 	
- 	</dependencies>
+				<!-- Packages, installs, and deploys the jpa project -->
+				<plugin>
+					<artifactId>maven-invoker-plugin</artifactId>
+					<configuration>
+						<pom>${project.build.directory}/projects/pom.xml</pom>
+					</configuration>
+					<executions>
+						<execution>
+							<id>package-subprojects</id>
+							<phase>package</phase>
+							<goals>
+								<goal>run</goal>
+							</goals>
+							<configuration>
+								<goals>
+									<goal>package</goal>
+								</goals>
+							</configuration>
+						</execution>
+						<execution>
+							<id>install-subprojects</id>
+							<phase>install</phase>
+							<goals>
+								<goal>run</goal>
+							</goals>
+							<configuration>
+								<goals>
+									<goal>install</goal>
+								</goals>
+							</configuration>
+						</execution>
+						<execution>
+							<id>deploy-subprojects</id>
+							<phase>deploy</phase>
+							<goals>
+								<goal>run</goal>
+							</goals>
+							<configuration>
+								<goals>
+									<goal>deploy</goal>
+								</goals>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+
+			</plugins>
+
+		</pluginManagement>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>edu.isi.bmkeg</groupId>
+			<artifactId>vpdmfGenerator</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+	</dependencies>
 </project>

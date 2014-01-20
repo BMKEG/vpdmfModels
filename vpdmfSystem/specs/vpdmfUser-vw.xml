@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<view name="vpdmfUser" type="System">
+<view name="VpdmfUser" type="System">
 	<primitives>
-		<primitive name="vpdmfUser">
+		<primitive name="VpdmfUser">
 			<classes>
-				<class name="vpdmfUser"/>
+				<class name="VpdmfUser"/>
+			</classes>
+			<pvLinks>
+				<pvLink c1="VpdmfUser" role="roles" pv2="VpdmfUserRole" c2="VpdmfUserRole"/>
+			</pvLinks>
+		</primitive>
+		<primitive name="VpdmfUserRole">
+			<classes>
+				<class name="VpdmfUserRole"/>
 			</classes>
 		</primitive>
 	</primitives>
 	<vpdmfLabel format="$1$" />
 	<indexElements>
-		<indexElement pos="1" p="vpdmfUser" c="vpdmfUser" a="login" />
+		<indexElement pos="1" p="VpdmfUser" c="VpdmfUser" a="login" />
 	</indexElements>
 </view>

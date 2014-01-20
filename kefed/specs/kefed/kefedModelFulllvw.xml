@@ -15,13 +15,13 @@
 				<pvLink c1="KefedModel" role="elements" pv2="ConstantInstance" c2="KefedModelElement"/>
 				<pvLink c1="KefedModel" role="elements" pv2="MeasurementInstance" c2="KefedModelElement"/>
 				<pvLink c1="KefedModel" role="curators" pv2="Curator" c2="KefedCurator"/>
-				<pvLink c1="KefedModel" role="reference" pv2="Reference" c2="ArticleCitationPlaceholder"/>
+				<pvLink c1="KefedModel" role="reference" pv2="Reference" c2="LiteratureCitation"/>
 				<pvLink c1="KefedModel" role="ooevv" pv2="OoevvElementSet" c2="OoevvElementSet"/>
 			</pvLinks>
 		</primitive>
 		<primitive name="OoevvElementSet">
 			<classes>
-				<class name="Term"/>
+				<class name="Ontology"/>
 				<class name="OoevvElementSet"/>
 			</classes>
 			<pvLinks>
@@ -36,7 +36,7 @@
 		</primitive>
 		<primitive name="Reference">
 			<classes>
-				<class name="ArticleCitationPlaceholder"/>
+				<class name="LiteratureCitation"/>
 			</classes>
 		</primitive>
 		
@@ -154,10 +154,9 @@
 		<primitive name="ExperimentalVariable" lookupView="ExperimentalVariableLU" nullable="true"/>
 		
 	</primitives>
-	<vpdmfLabel format="KEfED: $1$, expt: $2$, version: $3$" />
+	<vpdmfLabel format="KEfED expt: $1$, version: $2$" />
 	<indexElements>
-		<indexElement pos="1" p="Reference" c="ArticleCitationPlaceholder" a="citation" />
-		<indexElement pos="2" p="KefedModel" c="KefedModel" a="exptId" />
-		<indexElement pos="3" p="KefedModel" c="KefedModel" a="version" />
+		<indexElement pos="1" p="KefedModel" c="KefedModel" a="exptId" />
+		<indexElement pos="2" p="KefedModel" c="KefedModel" a="version" />
 	</indexElements>
 </view>

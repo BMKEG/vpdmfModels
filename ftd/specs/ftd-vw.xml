@@ -7,13 +7,7 @@
 			</classes>
 			<pvLinks>
 				<pvLink c1="FTD" role="ruleSet" pv2="FTDRuleSet" c2="FTDRuleSet"/>
-				<pvLink c1="FTD" role="pages" pv2="FTDPageImage" c2="FTDPageImage"/>
 			</pvLinks>
-		</primitive>
-		<primitive name="FTDPageImage" nullable="true">
-			<classes>
-				<class name="FTDPageImage"/>
-			</classes>
 		</primitive>
 		<primitive name="FTDRuleSet" nullable="true">
 			<classes>
@@ -27,6 +21,5 @@
 		<indexElement pos="2" p="FTD" c="FTD" a="checksum" />
 		<indexElement pos="3" p="FTDRuleSet" c="FTDRuleSet" a="rsName" />
 		<indexElement pos="4" p="FTDRuleSet" c="FTDRuleSet" a="fileName" />
-		<indexElement pos="5" p="FTDPageImage" c="FTDPageImage" a="pageCode" />
 	</indexElements>
 </view>
