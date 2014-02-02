@@ -33,14 +33,6 @@
 			<classes>
 				<class name="Journal"/>
 			</classes>
-			<pvLinks>
-				<pvLink c1="Journal" role="epochs" pv2="JournalEpoch" c2="JournalEpoch"/>
-			</pvLinks>
-		</primitive>
-		<primitive name="JournalEpoch" nullable="true">
-			<classes>
-				<class name="JournalEpoch"/>
-			</classes>
 		</primitive>
 	</primitives>		
 	<vpdmfLabel format="pmid: $1$, $2$ [checksum: $3$]" />
@@ -48,6 +40,5 @@
 		<indexElement pos="1" p="LiteratureCitation" c="ArticleCitation" a="pmid" uniqueKey="true"/>
 		<indexElement pos="2" p="FTD" c="FTD" a="name" />
 		<indexElement pos="3" p="FTD" c="FTD" a="checksum" />
-		<indexElement pos="4" p="JournalEpoch" c="JournalEpoch" a="startVol" />
 	</indexElements>
 </view>

@@ -11,7 +11,7 @@
 			</classes>
 			<pvLinks>
 				<pvLink c1="Term" role="ontology" pv2="Ontology" c2="Ontology"/>
-				<pvLink c1="OrdinalScaleWithNamedRanks" role="ordinalValues" pv2="AllowedValues" c2="OrdinalValue"/>
+				<pvLink c1="OrdinalScaleWithNamedRanks" role="oVal" pv2="AllowedValues" c2="OrdinalValue"/>
 			</pvLinks>
 			<conditions>
 				<condition c="MeasurementScale" a="classType" v="OrdinalScaleWithNamedRanks"/>
@@ -20,6 +20,7 @@
 		<primitive name="Ontology" nullable="true">
 			<classes>
 				<class name="Ontology"/>
+				<class name="OoevvElementSet"/>
 			</classes>
 		</primitive>
 		<primitive name="AllowedValues" nullable="true">
@@ -38,7 +39,7 @@
 			</classes>
 		</primitive>
 	</primitives>
-	<vpdmfLabel format="$3$" />
+	<vpdmfLabel format="OrdinalScaleWithNamedRanks: $1$:$2$ ($3$)" />
 	<indexElements>
 		<indexElement pos="1" p="Ontology" c="Ontology" a="shortName" />
 		<indexElement pos="2" p="Term" c="Term" a="shortTermId" />

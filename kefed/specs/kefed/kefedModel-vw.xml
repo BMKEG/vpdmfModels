@@ -15,7 +15,7 @@
 		</primitive>
 		<primitive name="OoevvElementSet" nullable="true">
 			<classes>
-				<class name="Term"/>
+				<class name="Ontology"/>
 				<class name="OoevvElementSet"/>
 			</classes>
 		</primitive>
@@ -28,21 +28,23 @@
 			<classes>
 				<class name="KefedModelEdge"/>
 			</classes>
+			<pvLinks>
+				<pvLink crossLink="true" c1="KefedModelEdge" role="source" pv2="KefedModelElement" c2="KefedModelElement"/>
+				<pvLink crossLink="true" c1="KefedModelEdge" role="target" pv2="KefedModelElement" c2="KefedModelElement"/>
+			</pvLinks>
 		</primitive>
 		<primitive lookupView="KefedCuratorLU" nullable="true"/>
 		<primitive name="Reference" nullable="true">
 			<classes>
-				<class name="ViewTable"/>
 				<class name="LiteratureCitation"/>
 			</classes>
 		</primitive>
 	</primitives>
-	<vpdmfLabel format="KEfED: $1$, expt: $2$, version: $3$" />
+	<vpdmfLabel format="KEfED expt: $1$, version: $2$" />
 	<indexElements>
-		<indexElement pos="1" p="Reference" c="ViewTable" a="vpdmfLabel" />
-		<indexElement pos="2" p="KefedModel" c="KefedModel" a="exptId" />
-		<indexElement pos="3" p="KefedModel" c="KefedModel" a="version" />
-		<indexElement pos="4" p="KefedModelElement" c="KefedModelElement" a="uuid" />
-		<indexElement pos="5" p="KefedModelEdge" c="KefedModelEdge" a="uuid" />
+		<indexElement pos="1" p="KefedModel" c="KefedModel" a="exptId" />
+		<indexElement pos="2" p="KefedModel" c="KefedModel" a="version" />
+		<indexElement pos="3" p="KefedModelElement" c="KefedModelElement" a="uuid" />
+		<indexElement pos="4" p="KefedModelEdge" c="KefedModelEdge" a="uuid" />
 	</indexElements>
 </view>

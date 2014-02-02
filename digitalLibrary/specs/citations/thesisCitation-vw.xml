@@ -38,7 +38,7 @@
 	</primitives>
 	<vpdmfLabel format="@1@ ($2$), `$3$` $4$, $5$" />
 	<indexElements>
-		<indexElement pos="1" p="Author" c="Person" a="fullName" />
+		<indexElement pos="1" p="Author" c="Person" a="surname" />
 		<indexElement pos="2" p="LiteratureCitation" c="LiteratureCitation" a="pubYear" />
 		<indexElement pos="3" p="LiteratureCitation" c="LiteratureCitation" a="title" />
 		<indexElement pos="4" p="LiteratureCitation" c="ThesisCitation" a="university" />

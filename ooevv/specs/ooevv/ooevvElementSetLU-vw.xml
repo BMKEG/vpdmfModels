@@ -4,7 +4,7 @@
 		<primitive name="Term">
 			<classes>
 				<class name="ViewTable"/>
-				<class name="Term"/>
+				<class name="Ontology"/>
 				<class name="OoevvElementSet"/>
 			</classes>
 		</primitive>

@@ -10,6 +10,6 @@
 	</primitives>
 	<vpdmfLabel format="$1$" />
 	<indexElements>
-		<indexElement pos="1" p="TerminologyCurator" c="Person" a="fullName" />
+		<indexElement pos="1" p="TerminologyCurator" c="Person" a="email" />
 	</indexElements>
 </view>

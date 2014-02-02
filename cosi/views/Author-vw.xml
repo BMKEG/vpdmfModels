@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><view name="Author" type="Data"><primitives><primitive name="Author" ><classes><class name="Person"/><class name="Author"/></classes></primitive></primitives><vpdmfLabel format="$1$ $2$" /><indexElements><indexElement pos="1" p="Author" c="Person" a="initials" /><indexElement pos="2" p="Author" c="Person" a="surname" /></indexElements></view>

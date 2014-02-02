@@ -32,7 +32,7 @@
 			</classes>
 		</primitive>
 	</primitives>
-	<vpdmfLabel format="$3$" />
+	<vpdmfLabel format="OrdinalValue: $1$:$2$ ($3$)" />
 	<indexElements>
 		<indexElement pos="1" p="Ontology" c="Ontology" a="shortName" />
 		<indexElement pos="2" p="Term" c="Term" a="shortTermId" />

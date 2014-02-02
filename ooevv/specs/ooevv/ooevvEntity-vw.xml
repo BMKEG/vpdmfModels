@@ -9,7 +9,6 @@
 			</classes>
 			<pvLinks>
 				<pvLink c1="Term" role="ontology" pv2="Ontology" c2="Ontology"/>
-				<pvLink c1="OoevvElement" role="sets" pv2="Set" c2="OoevvElementSet"/>
 				<pvLink c1="OoevvEntity" role="obiTerm" pv2="ObiDefinition" c2="Term"/>
 			</pvLinks>
 			<conditions>
@@ -19,11 +18,6 @@
 		<primitive name="Ontology" nullable="true">
 			<classes>
 				<class name="Ontology"/>
-			</classes>
-		</primitive>
-		<primitive name="Set" nullable="true">
-			<classes>
-				<class name="Term"/>
 				<class name="OoevvElementSet"/>
 			</classes>
 		</primitive>
@@ -41,7 +35,7 @@
 			</classes>
 		</primitive>
 	</primitives>
-	<vpdmfLabel format="$3$" />
+	<vpdmfLabel format="OoevvEntity: $1$:$2$ ($3$)" />
 	<indexElements>
 		<indexElement pos="1" p="Ontology" c="Ontology" a="shortName" />
 		<indexElement pos="2" p="Term" c="Term" a="shortTermId" />

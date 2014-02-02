@@ -10,6 +10,9 @@
 						c1="Corpus" role="resources" 
 						pv2="ArticleCitationLU" c2="LiteratureCitation"/>
 			</pvLinks>
+			<conditions>
+				<condition c="Corpus" a="corpusType" v="ArticleCorpus"/>
+			</conditions>
 		</primitive>
 		<primitive editable="0" nullable="true" lookupView="ArticleCitationLU"/>
 	</primitives>

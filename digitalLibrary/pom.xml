@@ -2,14 +2,14 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>edu.isi.bmkeg</groupId>
   <artifactId>digitalLibrary</artifactId>
-  <version>1.1.3-SNAPSHOT</version>
+  <version>1.1.5-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>digitalLibrary</name>
   
   	<parent>
 	    <groupId>edu.isi.bmkeg</groupId>
 	    <artifactId>vpdmf-model-parent</artifactId>
-	    <version>1.1.3-SNAPSHOT</version>
+	    <version>1.1.5-SNAPSHOT</version>
 	    <relativePath>../vpdmf-model-parent</relativePath>
  	</parent>
 
@@ -21,7 +21,7 @@
     	<vpdmf.data.path>sheets</vpdmf.data.path>
     	<vpdmf.data.type>txt</vpdmf.data.type>
     	<vpdmf.solr.views>ArticleCitation,Corpus</vpdmf.solr.views>
-		<vpdmf.nestedModels>${basedir}/../people/ ${basedir}/../ftd/</vpdmf.nestedModels>  	
+		<vpdmf.nestedModels>${basedir}/../people/ ${basedir}/../terminology/ ${basedir}/../ftd/</vpdmf.nestedModels>  	
  	</properties>
   
   

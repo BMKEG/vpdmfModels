@@ -16,10 +16,11 @@
 		<primitive name="Ontology" nullable="true">
 			<classes>
 				<class name="Ontology"/>
+				<class name="OoevvElementSet"/>
 			</classes>
 		</primitive>
 	</primitives>
-	<vpdmfLabel format="$3$" />
+	<vpdmfLabel format="NaturalLanguageScale: $1$:$2$ ($3$)" />
 	<indexElements>
 		<indexElement pos="1" p="Ontology" c="Ontology" a="shortName" />
 		<indexElement pos="2" p="Term" c="Term" a="shortTermId" />
