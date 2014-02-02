@@ -13,3 +13,6 @@ target
 *-jpa/*
 src/*
 *.class
+*.bak
+*.bin
+sqlFiles/*
